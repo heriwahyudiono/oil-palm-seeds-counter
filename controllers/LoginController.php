@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['id'] = $user['id'];
             header("Location: ../views/hitung.php");
         } else {
-            echo "Password salah.";
+            echo "Password yang Anda masukkan salah";
         }
     } else {
-        echo "Email tidak terdaftar.";
+        echo "Email tidak terdaftar";
     }
 }
