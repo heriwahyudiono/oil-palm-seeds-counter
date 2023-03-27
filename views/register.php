@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>Daftar</h2>
-	<form method="POST" action="../controllers/RegisterController.php">
+	<form action="../controllers/RegisterController.php" method="POST">
 		<label for="nama_lengkap">Nama Lengkap:</label><br>
 		<input type="text" id="nama_lengkap" name="nama_lengkap" required><br>
 

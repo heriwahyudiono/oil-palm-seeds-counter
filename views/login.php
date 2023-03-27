@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>Login</h2>
-	<form method="POST" action="../controllers/LoginController.php">
+	<form action="../controllers/LoginController.php" method="POST">
 		<label for="email">Email:</label><br>
 		<input type="email" id="email" name="email" required><br>
 

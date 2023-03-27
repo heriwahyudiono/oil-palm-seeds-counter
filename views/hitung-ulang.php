@@ -9,7 +9,7 @@
 <body>
     <a href="./data.php">Kembali</a>
     <h2>Hitung Ulang</h2>
-    <form method="POST" action="../controllers/HitungUlangController.php">
+    <form action="../controllers/HitungUlangController.php" method="POST">
         <div>
             <label for="">Blok ke</label>
             <input type="text" name="blok_ke"><br>

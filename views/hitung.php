@@ -20,7 +20,7 @@ if (isset($_SESSION['id'])) {
 </head>
 <body>
     <h2>Selamat Datang <?php if(isset($nama_lengkap)){echo $nama_lengkap;} ?>, Selamat Menghitung</h2>
-    <form method="POST" action="../controllers/HitungController.php">
+    <form action="../controllers/HitungController.php" method="POST">
         <div>
             <label for="">Blok ke</label>
             <input type="text" name="blok_ke"><br>
