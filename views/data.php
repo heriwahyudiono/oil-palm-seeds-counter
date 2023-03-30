@@ -31,10 +31,47 @@
       border-radius: 3px;
     }
   </style>
+
+  <script>
+    function confirmDelete(id) {
+      if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+        window.location.href = "../controllers/DeleteDataController.php?id=" + id;
+      }
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#search-form').submit(function(event) {
+        event.preventDefault(); // menghentikan pengiriman form
+        var blok_ke = $('#search-input').val(); // mendapatkan input dari form
+        $.ajax({
+          url: '../controllers/SearchDataController.php', // file yang akan dipanggil untuk melakukan pencarian data
+          type: 'POST',
+          data: {
+            blok_ke: blok_ke
+          }, // mengirimkan data blok yang akan dicari
+          success: function(response) {
+            $('tbody').remove(); // hapus semua baris data yang ada pada tabel
+            $('h3').remove(); // hapus semua judul blok yang ada
+            $('table').remove(); // hapus semua tabel yang ada
+            $('body').append(response); // menampilkan data hasil pencarian
+          }
+        });
+      });
+    });
+  </script>
 </head>
 
 <body>
-  <a href="./hitung.php">Hitung lagi</a>
+  <a href="./hitung.php">Hitung lagi</a><br>
+  <a href="./hitung.php">Kembali</a>
+
+  <form id="search-form">
+    <input type="text" id="search-input" placeholder="Cari data berdasarkan blok">
+    <input type="submit" value="Cari">
+  </form>
 
   <?php
   function formatDate($date)
@@ -104,7 +141,7 @@
           echo "<td>" . $currentRow['keterangan'] . "</td>";
           echo "<td class='action-buttons'>
             <a href='./hitung-ulang.php'>Hitung Ulang</a>
-            <a href='../controllers/DeleteDataController.php?id=" . $currentRow['id'] . "'>Delete</a>
+            <button onclick='confirmDelete(" . $currentRow['id'] . ")'>Delete</button>
           </td>";
           echo "</tr>";
         }
@@ -117,6 +154,5 @@
     echo "<p>Belum ada data</p>";
   }
   ?>
-
 </body>
 </html>

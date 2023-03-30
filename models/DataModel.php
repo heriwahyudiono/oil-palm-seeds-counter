@@ -70,13 +70,30 @@ class DataModel
         return $data;
     }
 
+    public function getDataByBlok($blok_ke)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM data WHERE blok_ke = ?");
+        $stmt->bind_param("i", $blok_ke);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        $stmt->close();
+
+        return $data;
+    }
+
     public function updateData($id, $jumlah, $keterangan = null)
     {
-    $tanggal_penghitungan = date('Y-m-d H:i:s');
-    $stmt = $this->conn->prepare("UPDATE data SET jumlah = ?, keterangan = ?, tanggal_penghitungan = ? WHERE id = ?");
-    $stmt->bind_param("issi", $jumlah, $keterangan, $tanggal_penghitungan, $id);
-    $stmt->execute();
-    $stmt->close();
+        $tanggal_penghitungan = date('Y-m-d H:i:s');
+        $stmt = $this->conn->prepare("UPDATE data SET jumlah = ?, keterangan = ?, tanggal_penghitungan = ? WHERE id = ?");
+        $stmt->bind_param("issi", $jumlah, $keterangan, $tanggal_penghitungan, $id);
+        $stmt->execute();
+        $stmt->close();
     }
 
     public function closeConnection()
