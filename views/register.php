@@ -33,7 +33,7 @@
 		<label for="konfirmasi_password">Konfirmasi Password:</label><br>
 		<input type="password" id="konfirmasi_password" name="konfirmasi_password" required><br>
         <input type="submit" value="Daftar">
-    </form>
+    </form><br>
 	<a href="./login.php">Login</a>
 </body>
 </html>

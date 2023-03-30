@@ -20,6 +20,8 @@ if (isset($_SESSION['id'])) {
 </head>
 <body>
     <h2>Selamat Datang <?php if(isset($nama_lengkap)){echo $nama_lengkap;} ?>, Selamat Menghitung</h2>
+    <a href="./profil.php">Profil</a><br>
+    <a href="./settings.php">Settings</a><br><br>
     <form action="../controllers/HitungController.php" method="POST">
         <div>
             <label for="">Blok ke</label>

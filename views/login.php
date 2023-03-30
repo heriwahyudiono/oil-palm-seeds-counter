@@ -16,7 +16,7 @@
 		<input type="password" id="password" name="password" required><br>
 
 		<input type="submit" value="Login">
-	</form>
+	</form><br>
 	<a href="./register.php">Daftar</a>
 </body>
 </html>

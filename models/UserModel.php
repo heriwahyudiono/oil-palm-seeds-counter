@@ -1,27 +1,36 @@
 <?php
 require_once '../config/connection.php';
 
-class UserModel {
+class UserModel
+{
     private $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = openConnection();
     }
 
-    public function registerUser($nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $password) {
+    public function registerUser($nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $password)
+    {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO users (nama_lengkap, jenis_kelamin, tanggal_lahir, email, nomor_telepon, password) VALUES ('$nama_lengkap', '$jenis_kelamin', '$tanggal_lahir', '$email', '$nomor_telepon', '$hashed_password')";
+        $sql = "INSERT INTO users (nama_lengkap, jenis_kelamin, tanggal_lahir, email, nomor_telepon, password) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ssssss", $nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $hashed_password);
 
-        if ($this->conn->query($sql) === TRUE) {
-            header("Location: ../views/hitung.php");
+        if ($stmt->execute()) {
+            header("Location: ../views/home.php");
         } else {
             echo "Error: " . $sql . "<br>" . $this->conn->error;
         }
     }
 
-    public function getUserByEmail($email) {
-        $sql = "SELECT * FROM users WHERE email='$email'";
-        $result = $this->conn->query($sql);
+    public function getUserByEmail($email)
+    {
+        $sql = "SELECT * FROM users WHERE email=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows == 1) {
             $user = $result->fetch_assoc();
@@ -31,19 +40,46 @@ class UserModel {
         }
     }
 
-    public function getUserById($id) {
-        $sql = "SELECT * FROM users WHERE id='$id'";
-        $result = $this->conn->query($sql);
-    
+    public function getUserById($id)
+    {
+        $sql = "SELECT * FROM users WHERE id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
         if ($result->num_rows == 1) {
             $user = $result->fetch_assoc();
             return $user;
         } else {
             return null;
         }
-    }    
+    }
 
-    public function closeConnection() {
+    public function updateUser($id, $nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon)
+    {
+        $sql = "UPDATE users SET nama_lengkap=?, jenis_kelamin=?, tanggal_lahir=?, email=?, nomor_telepon=? WHERE id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("sssssi", $nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $id);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updatePassword($id, $password)
+    {
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $sql = "UPDATE users SET password=? WHERE id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("si", $hashed_password, $id);
+        $stmt->execute();
+    }
+
+    public function closeConnection()
+    {
         $this->conn->close();
     }
 }

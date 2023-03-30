@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($user) {
         if (password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];
+            $_SESSION['password'] = $user['password'];
             header("Location: ../views/hitung.php");
         } else {
             echo "Password yang Anda masukkan salah";
