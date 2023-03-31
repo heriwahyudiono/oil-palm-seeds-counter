@@ -9,6 +9,7 @@
 <body>
     <h2>Settings</h2>
     
-    <a href="./ubah-password.php">Ubah Password</a>
+    <a href="./ubah-password.php">Ubah Password</a><br>
+    <a href="./hitung.php">Kembali</a>
 </body>
 </html>
