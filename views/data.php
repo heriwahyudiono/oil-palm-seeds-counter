@@ -44,19 +44,19 @@
   <script>
     $(document).ready(function() {
       $('#search-form').submit(function(event) {
-        event.preventDefault(); // menghentikan pengiriman form
-        var blok_ke = $('#search-input').val(); // mendapatkan input dari form
+        event.preventDefault();
+        var blok_ke = $('#search-input').val();
         $.ajax({
-          url: '../controllers/SearchDataController.php', // file yang akan dipanggil untuk melakukan pencarian data
+          url: '../controllers/SearchDataController.php',
           type: 'POST',
           data: {
             blok_ke: blok_ke
-          }, // mengirimkan data blok yang akan dicari
+          },
           success: function(response) {
-            $('tbody').remove(); // hapus semua baris data yang ada pada tabel
-            $('h3').remove(); // hapus semua judul blok yang ada
-            $('table').remove(); // hapus semua tabel yang ada
-            $('body').append(response); // menampilkan data hasil pencarian
+            $('tbody').remove();
+            $('h3').remove();
+            $('table').remove();
+            $('body').append(response);
           }
         });
       });
@@ -65,6 +65,7 @@
 </head>
 
 <body>
+  <a href="./print-to-pdf.php">Cetak menjadi pdf</a><br>
   <a href="./hitung.php">Hitung lagi</a><br>
   <a href="./hitung.php">Kembali</a>
 

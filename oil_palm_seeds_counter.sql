@@ -20,3 +20,4 @@ CREATE TABLE data (
     tanggal_penghitungan DATE NOT NULL,
     keterangan TEXT DEFAULT NULL
 );
+
