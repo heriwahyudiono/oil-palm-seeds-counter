@@ -18,8 +18,11 @@ if (isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oil Palm Seeds Counter</title>
 </head>
+
 <body>
-    <h2>Selamat Datang <?php if(isset($nama_lengkap)){echo $nama_lengkap;} ?>, Selamat Menghitung</h2>
+    <h2>Selamat Datang <?php if (isset($nama_lengkap)) {
+                            echo $nama_lengkap;
+                        } ?>, Selamat Menghitung</h2>
     <a href="./profil.php">Profil</a><br>
     <a href="./settings.php">Settings</a><br><br>
     <form action="../controllers/HitungController.php" method="POST">
@@ -32,13 +35,27 @@ if (isset($_SESSION['id'])) {
             <input type="text" name="keterangan"><br>
             <label for="">Jumlah</label>
             <h2 id="jumlah">0</h2>
-            <button type="button" onclick="tambah()">Hitung</button>
+            <button type="button" onmousedown="tambah(); playSound()">Hitung</button>
+            <audio id="audio">
+                <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
+            </audio>
             <button type="submit">Simpan</button>
         </div>
     </form>
 
     <a href="./data.php">Lihat data</a><br>
     <a href="../controllers/LogoutController.php">Logout</a>
+
+    <script>
+        function playSound() {
+            const audio = document.getElementById("audio");
+            audio.play();
+            setTimeout(function() {
+                audio.pause();
+                audio.currentTime = 0;
+            }, 100);
+        }
+    </script>
 
     <script>
         let jumlah = 0;

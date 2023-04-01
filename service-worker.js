@@ -1,8 +1,8 @@
-const CACHE_NAME = 'cache';
+const CACHE_NAME = 'oil-palm-seeds-counter';
 const urlsToCache = [
-  '../assets/css/styles.css',
-  '../assets/js/script.js',
-  '../assets/images/logo.png'
+  './assets/css/styles.css',
+  './assets/js/script.js',
+  './assets/images/logo.png'
 ];
 
 self.addEventListener('install', event => {
@@ -27,7 +27,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
-  const cacheWhitelist = ['cache'];
+  const cacheWhitelist = ['oil-palm-seeds-counter'];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
