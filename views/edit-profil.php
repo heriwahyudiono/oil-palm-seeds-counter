@@ -46,6 +46,7 @@ if (isset($_SESSION['id'])) {
 
         <button type="submit">Simpan</button>
     </form>
+    
     <a href="./home.php">Kembali</a>
 </body>
 </html>

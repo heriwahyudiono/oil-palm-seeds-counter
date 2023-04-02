@@ -5,7 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hitung Ulang</title>
+    <style>
+        .vibrate {
+            animation: vibrate 0.3s;
+        }
+
+        @keyframes vibrate {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(-2px, 2px);
+            }
+
+            50% {
+                transform: translate(0);
+            }
+
+            75% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .vibrate-active {
+            animation: none;
+            transform: translate(0);
+        }
+    </style>
 </head>
+
 <body>
     <a href="./data.php">Kembali</a>
     <h2>Hitung Ulang</h2>
@@ -19,12 +52,39 @@
             <input type="text" name="keterangan"><br>
             <label for="">Jumlah</label>
             <h2 id="jumlah">0</h2>
-            <button type="button" onclick="tambah()">Hitung</button>
-            <button type="submit">Simpan</button>
+            <button type="button" onmousedown="tambah(); hitung(); document.querySelector('.vibrate').classList.add('vibrate-active')" class="vibrate">Hitung</button>
+            <audio id="hitung">
+                <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
+            </audio>
+            <button type="submit" onclick="simpan()">Simpan</button>
+            <audio id="simpan">
+                <source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </form>
 
     <script>
+        document.querySelector(".vibrate").addEventListener("mouseup", function() {
+            document.querySelector(".vibrate").classList.remove("vibrate-active");
+        });
+
+        function hitung() {
+            const audio = document.getElementById("hitung");
+            audio.play();
+            setTimeout(function() {
+                audio.pause();
+                audio.currentTime = 0;
+            }, 100);
+        }
+
+        function simpan() {
+            const audio = document.getElementById("simpan");
+            audio.play();
+            audio.addEventListener("ended", function() {
+                window.location.href = "../views/data.php";
+            });
+        }
+
         let jumlah = 0;
 
         function tambah() {

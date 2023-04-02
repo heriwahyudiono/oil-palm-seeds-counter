@@ -8,6 +8,7 @@
 </head>
 <body>
     <h2>Ubah Password</h2>
+    
     <form action="../controllers/UbahPasswordController.php" method="POST">
         <label>Password Lama:</label>
         <input type="password" name="password_lama" required><br>

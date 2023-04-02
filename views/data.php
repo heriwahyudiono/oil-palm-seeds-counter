@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <title>Data Jumlah</title>
   <style>
     table {
@@ -31,37 +32,6 @@
       border-radius: 3px;
     }
   </style>
-
-  <script>
-    function confirmDelete(id) {
-      if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
-        window.location.href = "../controllers/DeleteDataController.php?id=" + id;
-      }
-    }
-  </script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#search-form').submit(function(event) {
-        event.preventDefault();
-        var blok_ke = $('#search-input').val();
-        $.ajax({
-          url: '../controllers/SearchDataController.php',
-          type: 'POST',
-          data: {
-            blok_ke: blok_ke
-          },
-          success: function(response) {
-            $('tbody').remove();
-            $('h3').remove();
-            $('table').remove();
-            $('body').append(response);
-          }
-        });
-      });
-    });
-  </script>
 </head>
 
 <body>
@@ -155,5 +125,36 @@
     echo "<p>Belum ada data</p>";
   }
   ?>
+
+  <script>
+    function confirmDelete(id) {
+      if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+        window.location.href = "../controllers/DeleteDataController.php?id=" + id;
+      }
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#search-form').submit(function(event) {
+        event.preventDefault();
+        var blok_ke = $('#search-input').val();
+        $.ajax({
+          url: '../controllers/SearchDataController.php',
+          type: 'POST',
+          data: {
+            blok_ke: blok_ke
+          },
+          success: function(response) {
+            $('tbody').remove();
+            $('h3').remove();
+            $('table').remove();
+            $('body').append(response);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

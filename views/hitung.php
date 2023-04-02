@@ -1,15 +1,3 @@
-<?php
-require_once '../models/UserModel.php';
-
-session_start();
-
-if (isset($_SESSION['id'])) {
-    $userModel = new UserModel();
-    $user = $userModel->getUserById($_SESSION['id']);
-    $nama_lengkap = $user['nama_lengkap'];
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +5,40 @@ if (isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oil Palm Seeds Counter</title>
+    <style>
+        .vibrate {
+            animation: vibrate 0.3s;
+        }
+
+        @keyframes vibrate {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(-2px, 2px);
+            }
+
+            50% {
+                transform: translate(0);
+            }
+
+            75% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .vibrate-active {
+            animation: none;
+            transform: translate(0);
+        }
+    </style>
 </head>
+
 <body>
     <h2>Selamat Datang <?php if (isset($nama_lengkap)) {
                             echo $nama_lengkap;
@@ -34,7 +55,7 @@ if (isset($_SESSION['id'])) {
             <input type="text" name="keterangan"><br>
             <label for="">Jumlah</label>
             <h2 id="jumlah">0</h2>
-            <button type="button" onmousedown="tambah(); hitung()">Hitung</button>
+            <button type="button" onmousedown="tambah(); hitung(); document.querySelector('.vibrate').classList.add('vibrate-active')" class="vibrate">Hitung</button>
             <audio id="hitung">
                 <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
             </audio>
@@ -49,6 +70,10 @@ if (isset($_SESSION['id'])) {
     <a href="../controllers/LogoutController.php">Logout</a>
 
     <script>
+        document.querySelector(".vibrate").addEventListener("mouseup", function() {
+            document.querySelector(".vibrate").classList.remove("vibrate-active");
+        });
+
         function hitung() {
             const audio = document.getElementById("hitung");
             audio.play();

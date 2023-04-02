@@ -26,7 +26,7 @@ class HitungController
 
         echo '<audio autoplay><source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg"></audio>';
 
-        usleep(2500000);
+        usleep(2100000);
 
         header('Location: ../views/data.php');
     }

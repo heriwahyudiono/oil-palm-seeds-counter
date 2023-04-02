@@ -1,7 +1,5 @@
 const CACHE_NAME = 'oil-palm-seeds-counter';
 const urlsToCache = [
-  './assets/css/styles.css',
-  './assets/js/script.js',
   './assets/images/logo.png'
 ];
 
