@@ -24,6 +24,10 @@ class HitungController
         $model = new DataModel();
         $model->simpanData($blok_ke, $baris_ke, $jumlah, $keterangan);
 
+        echo '<audio autoplay><source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg"></audio>';
+
+        usleep(2500000);
+
         header('Location: ../views/data.php');
     }
 }

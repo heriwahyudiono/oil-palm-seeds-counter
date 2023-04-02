@@ -18,7 +18,6 @@ if (isset($_SESSION['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oil Palm Seeds Counter</title>
 </head>
-
 <body>
     <h2>Selamat Datang <?php if (isset($nama_lengkap)) {
                             echo $nama_lengkap;
@@ -35,11 +34,14 @@ if (isset($_SESSION['id'])) {
             <input type="text" name="keterangan"><br>
             <label for="">Jumlah</label>
             <h2 id="jumlah">0</h2>
-            <button type="button" onmousedown="tambah(); playSound()">Hitung</button>
-            <audio id="audio">
+            <button type="button" onmousedown="tambah(); hitung()">Hitung</button>
+            <audio id="hitung">
                 <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
             </audio>
-            <button type="submit">Simpan</button>
+            <button type="submit" onclick="simpan()">Simpan</button>
+            <audio id="simpan">
+                <source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </form>
 
@@ -47,17 +49,23 @@ if (isset($_SESSION['id'])) {
     <a href="../controllers/LogoutController.php">Logout</a>
 
     <script>
-        function playSound() {
-            const audio = document.getElementById("audio");
+        function hitung() {
+            const audio = document.getElementById("hitung");
             audio.play();
             setTimeout(function() {
                 audio.pause();
                 audio.currentTime = 0;
             }, 100);
         }
-    </script>
 
-    <script>
+        function simpan() {
+            const audio = document.getElementById("simpan");
+            audio.play();
+            audio.addEventListener("ended", function() {
+                window.location.href = "../views/data.php";
+            });
+        }
+
         let jumlah = 0;
 
         function tambah() {
