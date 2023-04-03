@@ -1,3 +1,15 @@
+<?php
+require_once '../models/UserModel.php';
+
+session_start();
+
+if (isset($_SESSION['id'])) {
+    $userModel = new UserModel();
+    $user = $userModel->getUserById($_SESSION['id']);
+    $nama_lengkap = $user['nama_lengkap'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,10 +50,11 @@
         }
     </style>
 </head>
-
 <body>
     <a href="./data.php">Kembali</a>
-    <h2>Hitung Ulang</h2>
+    <h2>Halo <?php if (isset($nama_lengkap)) {
+                            echo $nama_lengkap;
+                        } ?>, hitung dengan teliti ya</h2>
     <form action="../controllers/HitungUlangController.php" method="POST">
         <div>
             <label for="">Blok ke</label>

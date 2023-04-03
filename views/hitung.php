@@ -1,3 +1,15 @@
+<?php
+require_once '../models/UserModel.php';
+
+session_start();
+
+if (isset($_SESSION['id'])) {
+    $userModel = new UserModel();
+    $user = $userModel->getUserById($_SESSION['id']);
+    $nama_lengkap = $user['nama_lengkap'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +20,8 @@
     <style>
         .vibrate {
             animation: vibrate 0.3s;
+            width: 125px;
+            height: 125px;
         }
 
         @keyframes vibrate {
@@ -38,11 +52,10 @@
         }
     </style>
 </head>
-
 <body>
-    <h2>Selamat Datang <?php if (isset($nama_lengkap)) {
+    <h2>Selamat datang <?php if (isset($nama_lengkap)) {
                             echo $nama_lengkap;
-                        } ?>, Selamat Menghitung</h2>
+                        } ?>, selamat menghitung</h2>
     <a href="./profil.php">Profil</a><br>
     <a href="./settings.php">Settings</a><br><br>
     <form action="../controllers/HitungController.php" method="POST">
@@ -55,13 +68,13 @@
             <input type="text" name="keterangan"><br>
             <label for="">Jumlah</label>
             <h2 id="jumlah">0</h2>
-            <button type="button" onmousedown="tambah(); hitung(); document.querySelector('.vibrate').classList.add('vibrate-active')" class="vibrate">Hitung</button>
-            <audio id="hitung">
-                <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
-            </audio>
             <button type="submit" onclick="simpan()">Simpan</button>
             <audio id="simpan">
                 <source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg">
+            </audio>
+            <button type="button" onmousedown="tambah(); hitung(); document.querySelector('.vibrate').classList.add('vibrate-active')" class="vibrate">Hitung</button>
+            <audio id="hitung">
+                <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
             </audio>
         </div>
     </form>

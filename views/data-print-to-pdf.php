@@ -17,31 +17,9 @@
       padding: 8px;
       border-bottom: 1px solid #ddd;
     }
-
-    .action-buttons {
-      display: flex;
-    }
-
-    .action-buttons a {
-      margin-right: 5px;
-      text-decoration: none;
-      color: black;
-      padding: 5px 10px;
-      border: 1px solid black;
-      border-radius: 3px;
-    }
   </style>
 </head>
 <body>
-
-  <a href="./print-to-pdf.php">Cetak menjadi pdf</a><br>
-  <a href="./hitung.php">Hitung lagi</a><br>
-  <a href="./hitung.php">Kembali</a>
-
-  <form id="search-form">
-    <input type="text" id="search-input" placeholder="Cari data berdasarkan blok">
-    <input type="submit" value="Cari">
-  </form>
 
   <?php
   function formatDate($date)
@@ -77,8 +55,6 @@
             echo "<td>" . $currentRow['jumlah'] . "</td>";
             echo "<td>" . formatDate($currentRow['tanggal_penghitungan']) . "</td>";
             echo "<td>" . $currentRow['keterangan'] . "</td>";
-            echo "<td class='action-buttons'><a href='./hitung-ulang.php'>Hitung Ulang</a></td>";
-            echo "<td class='action-buttons'><a href='../controllers/DeleteDataController.php?id=" . $currentRow['id'] . "'>Delete</a></td>";
             echo "</tr>";
           }
           echo "</tbody>";
@@ -94,7 +70,6 @@
         echo "<th>Jumlah</th>";
         echo "<th>Tanggal Penghitungan</th>";
         echo "<th>Keterangan</th>";
-        echo "<th>Action</th>";
         echo "</tr>";
         echo "</thead>";
       }
@@ -109,10 +84,6 @@
           echo "<td>" . $currentRow['jumlah'] . "</td>";
           echo "<td>" . formatDate($currentRow['tanggal_penghitungan']) . "</td>";
           echo "<td>" . $currentRow['keterangan'] . "</td>";
-          echo "<td class='action-buttons'>
-            <a href='./hitung-ulang.php'>Hitung Ulang</a>
-            <button onclick='confirmDelete(" . $currentRow['id'] . ")'>Delete</button>
-          </td>";
           echo "</tr>";
         }
         echo "</tbody>";
@@ -125,35 +96,5 @@
   }
   ?>
 
-  <script>
-    function confirmDelete(id) {
-      if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
-        window.location.href = "../controllers/DeleteDataController.php?id=" + id;
-      }
-    }
-  </script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#search-form').submit(function(event) {
-        event.preventDefault();
-        var blok_ke = $('#search-input').val();
-        $.ajax({
-          url: '../controllers/SearchDataController.php',
-          type: 'POST',
-          data: {
-            blok_ke: blok_ke
-          },
-          success: function(response) {
-            $('tbody').remove();
-            $('h3').remove();
-            $('table').remove();
-            $('body').append(response);
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
