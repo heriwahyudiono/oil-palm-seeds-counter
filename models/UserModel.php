@@ -78,6 +78,43 @@ class UserModel
         $stmt->execute();
     }
 
+    public function updateToken($id, $token)
+    {
+        $sql = "UPDATE users SET token=? WHERE id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("si", $token, $id);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getUserByToken($token)
+    {
+        $sql = "SELECT * FROM users WHERE token = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $token);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows == 1) {
+            $user = $result->fetch_assoc();
+            return $user;
+        } else {
+            return null;
+        }
+    }
+
+    public function updateResetToken($email, $token)
+    {
+        $sql = "UPDATE users SET token = ? WHERE email = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ss", $token, $email);
+        $stmt->execute();
+
+        return $stmt->affected_rows > 0;
+    }
+
     public function closeConnection()
     {
         $this->conn->close();

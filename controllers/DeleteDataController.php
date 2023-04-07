@@ -10,6 +10,7 @@ if (isset($_GET['id'])) {
 
     $model->deleteData($id);
     
+    $model->closeConnection();
+
     header("Location: ../views/data.php");
-    exit();
 }

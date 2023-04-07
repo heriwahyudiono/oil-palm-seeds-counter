@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +14,25 @@
     <form action="../controllers/LoginController.php" method="POST">
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br>
-
+        <?php
+            if(isset($_SESSION['email_error'])) {
+                echo "<p>{$_SESSION['email_error']}</p>";
+                unset($_SESSION['email_error']);
+            }
+        ?>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br>
-
+        <?php
+            if(isset($_SESSION['password_error'])) {
+                echo "<p>{$_SESSION['password_error']}</p>";
+                unset($_SESSION['password_error']);
+            }
+        ?>
         <input type="submit" value="Login">
-    </form><br>
+    </form>
     
-    <a href="./register.php">Daftar</a>
+    <p>Belum punya akun? <a href="./register.php">Daftar</a></p>
+    <a href="./lupa-password.php">Lupa password?</a>
 
     <script>
         if ('serviceWorker' in navigator) {
@@ -34,3 +47,4 @@
     </script>
 </body>
 </html>
+

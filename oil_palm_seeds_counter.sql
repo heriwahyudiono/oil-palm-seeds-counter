@@ -1,6 +1,6 @@
-CREATE DATABASE db_oil_palm_seeds_counter;
+CREATE DATABASE oil_palm_seeds_counter;
 
-USE db_oil_palm_seeds_counter;
+USE oil_palm_seeds_counter;
 
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,

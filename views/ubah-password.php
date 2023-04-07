@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +10,33 @@
 </head>
 <body>
     <h2>Ubah Password</h2>
-    
+    <?php
+    if (isset($_SESSION['succes_message'])) {
+        echo "<p>{$_SESSION['succes_message']}</p>";
+        unset($_SESSION['succes_message']);
+    }
+    ?>
     <form action="../controllers/UbahPasswordController.php" method="POST">
         <label>Password Lama:</label>
         <input type="password" name="password_lama" required><br>
+        <?php
+        if (isset($_SESSION['error_old_password'])) {
+            echo "<p>{$_SESSION['error_old_password']}</p>";
+            unset($_SESSION['error_old_password']);
+        }
+        ?>
 
         <label>Password Baru:</label>
         <input type="password" name="password_baru" required><br>
 
         <label>Konfirmasi Password Baru:</label>
         <input type="password" name="konfirmasi_password_baru" required><br>
+        <?php
+        if (isset($_SESSION['error_new_password'])) {
+            echo "<p>{$_SESSION['error_new_password']}</p>";
+            unset($_SESSION['error_new_password']);
+        }
+        ?>
 
         <button type="submit" name="submit">Ubah Password</button>
     </form>

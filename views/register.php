@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +34,15 @@
 
 		<label for="konfirmasi_password">Konfirmasi Password:</label><br>
 		<input type="password" id="konfirmasi_password" name="konfirmasi_password" required><br>
+		<?php
+            if(isset($_SESSION['password_error'])) {
+                echo "<p>{$_SESSION['password_error']}</p>";
+                unset($_SESSION['password_error']);
+            }
+        ?>
+		
         <input type="submit" value="Daftar">
     </form><br>
-	<a href="./login.php">Login</a>
+	<p>Sudah punya akun? <a href="./login.php">Login</a></p>
 </body>
 </html>

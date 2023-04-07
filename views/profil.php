@@ -25,6 +25,12 @@ if (isset($_SESSION['id'])) {
 </head>
 <body>
     <h2>Profil</h2>
+    <?php
+    if (isset($_SESSION['succes_message'])) {
+        echo "<p>{$_SESSION['succes_message']}</p>";
+        unset($_SESSION['succes_message']);
+    }
+    ?>
     
     <p>Nama: <?php echo $nama_lengkap; ?></p>
     <p>Jenis Kelamin: <?php echo $jenis_kelamin; ?></p>

@@ -4,6 +4,13 @@ require_once '../models/DataModel.php';
 
 class HitungController
 {
+    private $model;
+
+    public function __construct()
+    {
+        $this->model = new DataModel();
+    }
+
     public function hitung()
     {
         include '../views/hitung.php';
@@ -21,14 +28,18 @@ class HitungController
             return;
         }
 
-        $model = new DataModel();
-        $model->simpanData($blok_ke, $baris_ke, $jumlah, $keterangan);
+        $this->model->simpanData($blok_ke, $baris_ke, $jumlah, $keterangan);
 
         echo '<audio autoplay><source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg"></audio>';
 
         usleep(2100000);
 
         header('Location: ../views/data.php');
+    }
+
+    public function __destruct()
+    {
+        $this->model->closeConnection();
     }
 }
 

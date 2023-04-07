@@ -11,11 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $konfirmasi_password = $_POST['konfirmasi_password'];
 
     if ($password != $konfirmasi_password) {
-        echo "Konfirmasi password tidak sesuai";
-        exit;
+        $_SESSION['password_error'] = "Konfirmasi password tidak sesuai";
+        header("Location: ../views/register.php");
+        exit();
     }
 
     $userModel = new UserModel();
     $userModel->registerUser($nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $password);
     $userModel->closeConnection();
+    header("Location: ../views/hitung.php");
 }

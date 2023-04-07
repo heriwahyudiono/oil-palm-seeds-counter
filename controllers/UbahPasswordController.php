@@ -15,12 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password_lama, $user['password'])) {
             if ($password_baru == $konfirmasi_password_baru) {
                 $userModel->updatePassword($id, $password_baru);
-                echo "Password berhasil diubah";
+                $_SESSION['succes_message'] = "Password berhasil diubah";
+                header("Location: ../views/ubah-password.php");
             } else {
-                echo "Konfirmasi password baru tidak cocok";
+                $_SESSION['error_new_password'] = "Konfirmasi password baru tidak cocok";
+                header("Location: ../views/ubah-password.php");
             }
         } else {
-            echo "Password lama yang Anda masukkan salah";
+            $_SESSION['error_old_password'] = "Password lama yang Anda masukkan salah";
+            header("Location: ../views/ubah-password.php");
         }
     }
 }
+
+$userModel->closeConnection();

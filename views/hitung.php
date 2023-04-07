@@ -1,11 +1,15 @@
 <?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location: ./login.php');
+    exit();
+}
+
 require_once '../models/UserModel.php';
 
-session_start();
-
-if (isset($_SESSION['id'])) {
-    $userModel = new UserModel();
-    $user = $userModel->getUserById($_SESSION['id']);
+$userModel = new UserModel();
+$user = $userModel->getUserById($_SESSION['id']);
+if ($user !== null) {
     $nama_lengkap = $user['nama_lengkap'];
 }
 ?>
@@ -56,7 +60,6 @@ if (isset($_SESSION['id'])) {
     <h2>Selamat datang <?php if (isset($nama_lengkap)) {
                             echo $nama_lengkap;
                         } ?>, selamat menghitung</h2>
-    <a href="./profil.php">Profil</a><br>
     <a href="./settings.php">Settings</a><br><br>
     <form action="../controllers/HitungController.php" method="POST">
         <div>
@@ -74,7 +77,7 @@ if (isset($_SESSION['id'])) {
             </audio>
             <button type="button" onmousedown="tambah(); hitung(); document.querySelector('.vibrate').classList.add('vibrate-active')" class="vibrate">Hitung</button>
             <audio id="hitung">
-                <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
+                <source src="../assets/audio/hitung.mp3" type="audio/mpeg">
             </audio>
         </div>
     </form>

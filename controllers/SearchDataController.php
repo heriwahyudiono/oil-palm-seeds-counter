@@ -69,3 +69,5 @@ if (isset($_POST['blok_ke'])) {
 function formatDate($date) {
   return date('d-m-Y', strtotime($date));
 }
+
+$model->closeConnection();

@@ -9,6 +9,7 @@
 <body>
     <h2>Settings</h2>
 
+    <a href="./profil.php">Profil</a><br>
     <a href="./ubah-password.php">Ubah Password</a><br>
     <a href="./hitung.php">Kembali</a>
     

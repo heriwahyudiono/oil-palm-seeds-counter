@@ -31,8 +31,12 @@ if (isset($_SESSION['id'])) {
         <label for="jenis_kelamin">Jenis Kelamin:</label>
         <select id="jenis_kelamin" name="jenis_kelamin" required>
             <option value="">Pilih jenis kelamin</option>
-            <option value="Laki-laki" <?php if (isset($user['jenis_kelamin']) && $user['jenis_kelamin'] == 'Laki-laki') { echo 'selected'; } ?>>Laki-laki</option>
-            <option value="Perempuan" <?php if (isset($user['jenis_kelamin']) && $user['jenis_kelamin'] == 'Perempuan') { echo 'selected'; } ?>>Perempuan</option>
+            <option value="Laki-laki" <?php if (isset($user['jenis_kelamin']) && $user['jenis_kelamin'] == 'Laki-laki') {
+                                            echo 'selected';
+                                        } ?>>Laki-laki</option>
+            <option value="Perempuan" <?php if (isset($user['jenis_kelamin']) && $user['jenis_kelamin'] == 'Perempuan') {
+                                            echo 'selected';
+                                        } ?>>Perempuan</option>
         </select><br>
 
         <label for="tanggal_lahir">Tanggal Lahir:</label>
@@ -46,7 +50,7 @@ if (isset($_SESSION['id'])) {
 
         <button type="submit">Simpan</button>
     </form>
-    
-    <a href="./home.php">Kembali</a>
+
+    <a href="./profil.php">Kembali</a>
 </body>
 </html>
