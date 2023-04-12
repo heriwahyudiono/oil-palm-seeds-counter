@@ -56,7 +56,7 @@
                 echo "
                     <div>
                         <div>
-                            <img style='width: 10px; height: 10px' src='../assets/images/ptpn6.jpeg' alt=''>
+                            <img style='width: 10px; height: 10px' src='../assets/images/ptpn6.png' alt=''>
                             <h2 style='display: flex'>PTPN 6 Unit Usaha Durian Luncuk</h2>
                         </div>
                         <h3>Data Jumlah Bibit Kelapa Sawit di Pembibitan Main Nursery</h3>

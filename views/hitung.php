@@ -77,7 +77,7 @@ if ($user !== null) {
             </audio>
             <button type="button" onmousedown="tambah(); hitung(); document.querySelector('.vibrate').classList.add('vibrate-active')" class="vibrate">Hitung</button>
             <audio id="hitung">
-                <source src="../assets/audio/hitung.mp3" type="audio/mpeg">
+                <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
             </audio>
         </div>
     </form>
