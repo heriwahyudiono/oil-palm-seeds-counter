@@ -35,7 +35,7 @@
 </head>
 <body>
 
-  <button onclick="generatePdf()">Cetak menjadi pdf</button><br>
+  <a href="./print-to-pdf.php">Cetak menjadi PDF</a><br>
   <a href="./hitung.php">Hitung lagi</a><br>
   <a href="./hitung.php">Kembali</a>
 
