@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'CrimsonPro';
+    src: url(./fonts/CrimsonPro-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Mate;
+    src: url(./fonts/Mate-Regular.ttf);
+}
+  
+*{
+    font-family: 'Mate', 'Times New Roman', Times, serif;
+}
+
+#oil_body_wrap{
+    max-width: 390px;
+    max-height: 768px;
+    overflow-y: scroll;
+    margin: auto;
+}

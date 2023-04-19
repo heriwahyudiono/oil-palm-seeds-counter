@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="../manifest.json" />
+    <link rel="stylesheet" href="../assets/css/style.css">
     <title>Login</title>
 </head>
 <body>
+    <div id="oil_body_wrap"></div>
     <h2>Login</h2>
     <form action="../controllers/LoginController.php" method="POST">
         <label for="email">Email:</label><br>
