@@ -7,10 +7,10 @@
     <title>Print to PDF</title>
 </head>
 <body>
-    
+
     <?php
 
-    require_once __DIR__ . '/../vendor/autoload.php';
+    require_once '../vendor/autoload.php';
 
     use Dompdf\Dompdf;
 
@@ -24,6 +24,21 @@
     $data = $model->getData();
 
     ob_start();
+
+    $image = file_get_contents("../assets/images/image.png");
+    $imagedata = base64_encode($image);
+
+    echo "
+        <div>
+            <div>
+                <img style='width: 70px; float: left; margin-right: 10px; margin-top: 16px;' src='data:image/png;base64, $imagedata' alt=''>
+                <h2>PTPN 6 Unit Usaha Durian Luncuk</h2>
+                <h3>Data Jumlah Bibit Kelapa Sawit di Pembibitan Main Nursery</h3>
+            </div>
+            <hr>
+        </div>                              
+    ";
+
     if ($data) {
 
         usort($data, function ($a, $b) {
@@ -52,17 +67,6 @@
                     }
                     echo "</tbody>";
                 }
-
-                echo "
-                    <div>
-                        <div>
-                            <img style='width: 10px; height: 10px' src='../assets/images/ptpn6.png' alt=''>
-                            <h2 style='display: flex'>PTPN 6 Unit Usaha Durian Luncuk</h2>
-                        </div>
-                        <h3>Data Jumlah Bibit Kelapa Sawit di Pembibitan Main Nursery</h3>
-                        <hr>
-                    </div>            
-                ";
 
                 echo "<h3>Blok ke- " . $currentBlok . "</h3>";
                 echo "<table style='border-collapse: collapse; width: 100%;'>";
@@ -109,7 +113,7 @@
 
     ob_end_clean();
 
-    $dompdf->stream("data.pdf", array("Attachment" => false));
+    $dompdf->stream("jumlah-bibit.pdf", array("Attachment" => false));
 
     ?>
 
