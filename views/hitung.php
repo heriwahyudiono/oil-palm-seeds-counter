@@ -60,7 +60,7 @@ if ($user !== null) {
 <body>
     <div id="oil_body_wrap" class="oil_header_padding oil_second">
         <div class="oil_header">
-            <a href="./profil.php" style="display: inline-flex !important"><img src="../assets/images/img_icon_back.svg"></a>
+            <!-- <a href="./profil.php" style="display: inline-flex !important"><img src="../assets/images/img_icon_back.svg"></a> -->
             <div class="oil_wrap_header_menu">
                 <a class="oil_wrap_button_header" href="./settings.php"><img src="../assets/images/img_icon_setting.svg" alt="" srcset=""></a>
                 <a class="oil_wrap_button_header" href="./data.php">Lihat data <img src="../assets/images/img_icon_document.svg" alt="" srcset=""></a>
