@@ -21,24 +21,54 @@ if (isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <title>Profil</title>
 </head>
 <body>
-    <h2>Profil</h2>
-    <?php
-    if (isset($_SESSION['succes_message'])) {
-        echo "<p>{$_SESSION['succes_message']}</p>";
-        unset($_SESSION['succes_message']);
-    }
-    ?>
-    
-    <p>Nama: <?php echo $nama_lengkap; ?></p>
-    <p>Jenis Kelamin: <?php echo $jenis_kelamin; ?></p>
-    <p>Tanggal Lahir: <?php echo $tanggal_lahir; ?></p>
-    <p>Email: <?php echo $email; ?></p>
-    <p>Nomor Telepon: <?php echo $nomor_telepon; ?></p>
-
-    <a href="./edit-profil.php">Edit Profil</a><br>
-    <a href="./hitung.php">Kembali</a>
+    <div id="oil_body_wrap" class="oil_header_padding oil_second">
+        <div class="oil_header">
+            <a href="./settings.php"><img src="../assets/images/img_icon_back.svg">Kembali</a>
+        </div>
+        <div class="oil_content oil_bg_leaf" style="padding-bottom: 16px">
+            <div>
+                <h2>Profil</h2>
+                <img class="img_icon_head" src="../assets/images/img_icon_user_color.svg" alt="" srcset="">
+                <?php
+                if (isset($_SESSION['succes_message'])) {
+                    echo "<p>{$_SESSION['succes_message']}</p>";
+                    unset($_SESSION['succes_message']);
+                }
+                ?>
+                
+                <p class="oil_profil_data_label" style="margin-top: 0px">Nama: 
+                    <div class="oil_profil_data oil_name">
+                        <?php echo $nama_lengkap; ?>
+                    </div>
+                </p>
+                <p class="oil_profil_data_label">Jenis Kelamin: 
+                    <div class="oil_profil_data oil_gender">
+                        <?php echo $jenis_kelamin; ?>
+                    </div>
+                </p>
+                <p class="oil_profil_data_label">Tanggal Lahir: 
+                    <div class="oil_profil_data oil_date">
+                        <?php echo $tanggal_lahir; ?>
+                    </div>
+                </p>
+                <p class="oil_profil_data_label">Email: 
+                    <div class="oil_profil_data oil_email">
+                        <?php echo $email; ?>
+                    </div>
+                </p>
+                <p class="oil_profil_data_label">Nomor Telepon: 
+                    <div class="oil_profil_data oil_phone">
+                        <?php echo $nomor_telepon; ?>
+                    </div>
+                </p>
+            </div>
+                <a href="./edit-profil.php" class="btn" style="width: max-content; box-sizing: border-box; margin-left: 24px; margin-bottom: 16px !important">Ubah Profil</a>
+            
+        </div>
+    </div>
 </body>
 </html>

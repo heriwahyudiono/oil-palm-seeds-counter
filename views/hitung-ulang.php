@@ -16,6 +16,7 @@ if (isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <title>Hitung Ulang</title>
     <style>
         .vibrate {
@@ -51,31 +52,64 @@ if (isset($_SESSION['id'])) {
     </style>
 </head>
 <body>
-    <a href="./data.php">Kembali</a>
-    <h2>Halo <?php if (isset($nama_lengkap)) {
-                            echo $nama_lengkap;
-                        } ?>, hitung dengan teliti ya</h2>
-    <form action="../controllers/HitungUlangController.php" method="POST">
-        <div>
-            <label for="">Blok ke</label>
-            <input type="text" name="blok_ke"><br>
-            <label for="">Baris ke</label>
-            <input type="text" name="baris_ke"><br>
-            <label for="">Keterangan</label>
-            <input type="text" name="keterangan"><br>
-            <label for="">Jumlah</label>
-            <h2 id="jumlah">0</h2>
-            <button type="button" onmousedown="tambah(); hitung(); document.querySelector('.vibrate').classList.add('vibrate-active')" class="vibrate">Hitung</button>
-            <audio id="hitung">
-                <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
-            </audio>
-            <button type="submit" onclick="simpan()">Simpan</button>
-            <audio id="simpan">
-                <source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg">
-            </audio>
+    <div id="oil_body_wrap" class="oil_header_padding oil_second">
+        <div class="oil_header">
+            <a href="./data.php" style="display: inline-flex !important"><img src="../assets/images/img_icon_back.svg"></a>
+            <div class="oil_wrap_header_menu">
+                <a class="oil_wrap_button_header" href="./settings.php"><img src="../assets/images/img_icon_setting.svg" alt="" srcset=""></a>
+                <a class="oil_wrap_button_header" href="./data.php">Lihat data <img src="../assets/images/img_icon_document.svg" alt="" srcset=""></a>
+            </div>
         </div>
-    </form>
-
+        <div class="oil_content oil_bg_leaf">
+            <div>
+                <div id="oil_selamat_datang">Halo <span><?php if (isset($nama_lengkap)) {
+                            echo $nama_lengkap;
+                        } ?></span>!
+                </div>
+                <h2>Hitung dengan <span>Teliti ya...</span></h2>
+                <form action="../controllers/HitungUlangController.php" method="POST">
+                    <div>
+                        <div>
+                            <label for="">Blok ke</label>
+                            <div class="oil_input_column oil_input_icon oil_input_wrap">
+                                <input type="text" name="blok_ke" class="oil_input" placeholder="0">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">Baris ke</label>
+                            <div class="oil_input_row oil_input_icon oil_input_wrap">
+                                <input type="text" name="baris_ke" class="oil_input" placeholder="0">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">Keterangan</label>
+                        <div class="oil_input_description oil_input_icon oil_input_wrap">
+                                <input type="text" name="keterangan" class="oil_input" placeholder="Penjelasan data...">
+                            </div>
+                        </div>
+                        <label for="">Jumlah</label>
+                        <div id="oil_show_data">
+                            <h2 id="jumlah">0</h2>
+                            <button type="submit" onclick="simpan()" class="btn">Simpan</button>
+                        </div>
+                        <audio id="hitung">
+                            <source src="../assets/audio/censor-beep-1sec-8112.mp3" type="audio/mpeg">
+                        </audio>
+                        <audio id="simpan">
+                            <source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </form>
+                </div>
+				<div class="oil_footer">
+					<div class="oil_wrap_bottom">
+                        <button type="button" onmousedown="tambah(); hitung(); document.querySelector('.vibrate').classList.add('vibrate-active')" class="vibrate btn oil_btn_hitung">Hitung</button>
+                    </div>
+						<!-- <p class="oil_margin_object_bawah">Sudah punya akun? <a href="./login.php" style="display: inline; text-decoration: underline">Login</a></p> -->
+				</div>
+            </form>
+		</div>
+	</div>
     <script>
         document.querySelector(".vibrate").addEventListener("mouseup", function() {
             document.querySelector(".vibrate").classList.remove("vibrate-active");

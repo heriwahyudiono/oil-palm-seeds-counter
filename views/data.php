@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
   <title>Data Jumlah</title>
   <style>
@@ -34,15 +35,37 @@
   </style>
 </head>
 <body>
+    <div id="oil_body_wrap" class="oil_header_padding oil_second">
+        <div class="oil_header">
+            <a href="./hitung.php" style="display: inline-flex !important"><img src="../assets/images/img_icon_back.svg">Kembali</a>
+            <div class="oil_wrap_header_menu">
+                <!-- <a class="oil_wrap_button_header" href="./settings.php"><img src="../assets/images/img_icon_setting.svg" alt="" srcset=""></a>
+                <a class="oil_wrap_button_header" href="./data.php">Lihat data <img src="../assets/images/img_icon_document.svg" alt="" srcset=""></a> -->
+            </div>
+        </div>
+        <div class="oil_content oil_bg_leaf">
+            <div>
+			        <h2>Daftar Hasil
+                <br>
+                <span>Hitung</span>
+              </h2>
+            <div class="oil_d_column" style="gap: 8px">
+                <div>
+                  <a class="btn oil_btn_icon_small oil_green" href="./print-to-pdf.php"><img src="../assets/images/img_icon_print.svg">Cetak PDF</a>
+                </div>
+                <div>
+                  <a class="btn oil_btn_icon_small" href="./hitung.php"><img src="../assets/images/img_icon_refresh.svg">Hitung lagi</a>
+                </div>
+            </div>
 
-  <a href="./print-to-pdf.php">Cetak menjadi PDF</a><br>
-  <a href="./hitung.php">Hitung lagi</a><br>
-  <a href="./hitung.php">Kembali</a>
-
-  <form id="search-form">
-    <input type="text" id="search-input" placeholder="Cari data berdasarkan blok">
-    <input type="submit" value="Cari">
-  </form>
+                <label for="" style="margin-top: 44px; margin-bottom: 8px; display: block; font-family: Mate; font-size: 20px; font-weight: 400; line-height: 24px; letter-spacing: 0.04em; text-align: left;">Cari Data</label>
+              <form id="search-form">
+                <input type="text" id="search-input" placeholder="Ketik blok yang dicari...">
+                <input type="submit" value="Cari" class="btn">
+              </form>
+              <div style="height: 16px"></div>
+		</div>
+	</div>
 
   <div id="table-container">
     <?php
@@ -94,7 +117,7 @@
           echo "<tr>";
           echo "<th>Baris ke</th>";
           echo "<th>Jumlah</th>";
-          echo "<th>Tanggal Penghitungan</th>";
+          echo "<th>Penghitungan</th>";
           echo "<th>Keterangan</th>";
           echo "<th>Action</th>";
           echo "</tr>";
