@@ -14,15 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($existingData) {
         $model->updateData($existingData[0]['id'], $jumlah, $keterangan);
-        echo '<audio autoplay><source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg"></audio>';
+        echo '<audio autoplay><source src="../assets/audio/data-berhasil-diperbarui.mp3" type="audio/mpeg"></audio>';
     } else {
         $model->simpanData($blok_ke, $baris_ke, $jumlah, $keterangan, $tanggal_penghitungan);
-        echo '<audio autoplay><source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg"></audio>';
+        echo '<audio autoplay><source src="../assets/audio/data-baru-ditambahkan.mp3" type="audio/mpeg"></audio>';
     }
 
-    usleep(2100000);
-
-    header('Location: ../views/data.php');
+    echo '<script>setTimeout(function() { window.location.href = "../views/data.php"; }, 3000);</script>';
     exit();
 }
 

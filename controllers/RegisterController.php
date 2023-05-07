@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../models/UserModel.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,13 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $konfirmasi_password = $_POST['konfirmasi_password'];
 
     if ($password != $konfirmasi_password) {
-        $_SESSION['password_error'] = "Konfirmasi password tidak sesuai";
-        header("Location: ../views/register.php");
-        exit();
+        echo "Konfirmasi password tidak sesuai";
+        exit;
     }
 
     $userModel = new UserModel();
     $userModel->registerUser($nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $password);
+
+    $_SESSION['id'] = $userModel->getUserByEmail($email)['id'];
+
     $userModel->closeConnection();
+
     header("Location: ../views/hitung.php");
 }

@@ -9,24 +9,22 @@ if (isset($_GET['token'])) {
 
     if ($user) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $password = $_POST['password'];
-            $confirmPassword = $_POST['confirm_password'];
+            $password_baru = $_POST['password_baru'];
+            $konfirmasi_password_baru = $_POST['konfirmasi_password_baru'];
 
-            if (strlen($password) < 6) {
+            if (strlen($password_baru) < 6) {
                 $error = 'Password minimal 6 karakter';
-            } elseif ($password !== $confirmPassword) {
+            } else if ($password_baru !== $konfirmasi_password_baru) {
                 $error = 'Password dan konfirmasi password tidak sama';
             } else {
-                $userModel->updatePassword($user['id'], $password);
-                $userModel->updateToken($user['id'], null);
-                header('Location: ../views/login.php');
+                $userModel->updatePassword($user['id'], $password_baru);
+                $userModel->resetToken($user['id'], null);
+                $success = 'Password berhasil di reset';
             }
         }
-
-        include '../views/reset-password.php';
     } else {
-        header('Location: ../views/home.php');
+        $error = 'Token tidak valid atau sudah kadaluarsa';
     }
-} else {
-    header('Location: ../views/home.php');
 }
+
+$userModel->closeConnection();

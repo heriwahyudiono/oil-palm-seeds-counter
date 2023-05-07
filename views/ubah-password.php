@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="../assets/images/ptpn6.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,11 +60,9 @@
                     <div class="oil_wrap_bottom">
                         <button type="submit" name="submit" class="btn" style="width: max-content">Ubah Password</button>
                     </div>
-                    <!-- <p class="oil_margin_object_bawah">Belum punya akun? <a href="./register.php">Daftar</a></p> -->
                 </div>
             </form>
         </div>
-
     </div>
 </body>
 </html>

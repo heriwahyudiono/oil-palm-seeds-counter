@@ -2,7 +2,7 @@
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_AUTH', true);
 define('SMTP_USERNAME', 'heriwhydiono@gmail.com');
-define('SMTP_PASSWORD', '');
+define('SMTP_PASSWORD', 'kdsmzmpabtcksuqv');
 define('SMTP_SECURE', 'tls');
 define('SMTP_PORT', 587);
 
@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user !== null) {
         $reset_token = bin2hex(random_bytes(32));
-        $reset_link = "http://localhost/reset-password.php?token=$reset_token";
-        $userModel->updateResetToken($user['id'], $reset_token);
+        $reset_link = "http://localhost/oil-palm-seeds-counter/views/reset-password.php?token=$reset_token";
+        $userModel->updateToken($user['id'], $reset_token);
 
         try {
             $mail = new PHPMailer(true);
@@ -50,3 +50,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Email not found.";
     }
 }
+
+$userModel->closeConnection();

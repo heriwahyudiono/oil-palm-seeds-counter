@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,9 +27,7 @@
     $model = new DataModel();
     $data = $model->getData();
 
-    ob_start();
-
-    $image = file_get_contents("../assets/images/image.png");
+    $image = file_get_contents("../assets/images/ptpn6.png");
     $imagedata = base64_encode($image);
 
     echo "

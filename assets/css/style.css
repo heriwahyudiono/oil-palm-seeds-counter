@@ -1,16 +1,16 @@
 @font-face {
     font-family: CrimsonPro;
-    src: url(./fonts/CrimsonPro-VariableFont_wght.ttf);
+    src: url(../fonts/CrimsonPro-VariableFont_wght.ttf);
 }
 
 @font-face {
     font-family: Mate;
-    src: url(./fonts/Mate-Regular.ttf);
+    src: url(../fonts/Mate-Regular.ttf);
 }
 
 @font-face {
     font-family: Oswald;
-    src: url(./fonts/Oswald-VariableFont_wght.ttf);
+    src: url(../fonts/Oswald-VariableFont_wght.ttf);
 }
   
 *{
@@ -56,7 +56,14 @@ h2{
     letter-spacing: 0em;
     text-align: left;
     color: #789940;
-    text-shadow: -3px -3px 0 #FFF, 3px -3px 0 #FFF, -3px 3px 0 #FFF, 3px 3px 0 #FFF;
+    text-shadow: -3px -3px 0 #FFF,
+                3px -3px 0 #FFF,
+                -3px 3px 0 #FFF,
+                3px 3px 0 #FFF,
+                0px -3px 0 #FFF,
+                0px 3px 0 #FFF,
+                3px 0px 0 #FFF,
+                -3px 0px 0 #FFF;
 }
 
 h2 span{
@@ -128,6 +135,7 @@ a{
 .oil_bg_leaf{
     background: url(../images/img_bg_leaf.png);
     background-size: cover;
+    background-position: center;
 }
 
 .oil_input::placeholder{
@@ -787,3 +795,4 @@ input[type="radio"]:checked{
     display: block;
     width: 716px;
 }
+

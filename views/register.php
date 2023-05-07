@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="../assets/images/ptpn6.png">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,7 @@
 				<form action="../controllers/RegisterController.php" method="POST">
 					<label for="nama_lengkap">Nama Lengkap:</label>
                     <div class="oil_input_name oil_input_icon oil_input_wrap">
-						<input type="text" id="nama_lengkap" name="nama_lengkap" required class="oil_input" placeholder="Budi Budiman">
+						<input type="text" id="nama_lengkap" name="nama_lengkap" required class="oil_input" placeholder="Enter your full name">
 					</div>
 					<label for="jenis_kelamin">Jenis Kelamin:</label>
 					<input type="radio" id="laki-laki" name="jenis_kelamin" value="Laki-laki" required>
@@ -38,11 +39,11 @@
 					</div>
 					<label for="email">Email:</label>
                     <div class="oil_input_email oil_input_icon oil_input_wrap">
-						<input type="email" id="email" name="email" required class="oil_input" placeholder="budibudiman@email.com"><br>
+						<input type="email" id="email" name="email" required class="oil_input" placeholder="Enter your email"><br>
 					</div>
-					<label for="nomor_telepon">Nomor Telephone:</label>
+					<label for="nomor_telepon">Nomor Telepon:</label>
                     <div class="oil_input_phone oil_input_icon oil_input_wrap">
-						<input type="text" id="nomor_telepon" name="nomor_telepon" required class="oil_input" placeholder="62813XXXXXXXX"><br>
+						<input type="text" id="nomor_telepon" name="nomor_telepon" required class="oil_input" placeholder="Enter your phone number"><br>
 					</div>
 					<label for="password">Kata Sandi:</label>
                     <div class="oil_input_password oil_input_icon oil_input_wrap">
@@ -62,7 +63,7 @@
 					</div>
 					<div class="oil_footer">
 						<div class="oil_wrap_bottom">
-							<input type="submit" value="Daftar" class="btn" style="width: max-content">
+							<button type="submit" value="Daftar" class="btn">Daftar</button>
 						</div>
 						<p class="oil_margin_object_bawah">Sudah punya akun? <a href="./login.php" style="display: inline; text-decoration: underline">Login</a></p>
 					</div>

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="../assets/images/ptpn6.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,6 @@
                 <div class="oil_content" style="padding-top: 32px !important">
                     <h2 style="margin-bottom: 164px">Oil Palm <br><span>Seeds Counter</span></h2>
                     <img class="img_login_logo" src="../assets/images/ptpn6.png" alt="" srcset="">
-                    <!-- <label for="email">Email:</label><br> -->
                     <div class="oil_input_email oil_input_icon oil_input_wrap" style="margin-bottom: 24px">
                         <input type="email" id="email" name="email" required class="oil_input" placeholder="Alamat Email"><br>
                     </div>
@@ -27,7 +27,6 @@
                             unset($_SESSION['email_error']);
                         }
                     ?>
-                    <!-- <label for="password">Password:</label><br> -->
                     <div class="oil_input_password oil_input_icon oil_input_wrap">
                         <input type="password" id="password" name="password" required class="oil_input" placeholder="Kata Sandi"><br>
                     </div>
