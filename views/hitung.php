@@ -61,11 +61,17 @@ if ($user !== null) {
 <body>
     <div id="oil_body_wrap" class="oil_header_padding oil_second">
         <div class="oil_header">
+<<<<<<< HEAD
             <a class="oil_wrap_button_header" href="../controllers/LogoutController.php" style="border-color: #FFFFFF00"><img src="../assets/images/img_icon_logout.svg" alt="" srcset="" height="24">Keluar</a>
             <div class="oil_wrap_header_menu">
+=======
+>>>>>>> 5350a0110d0a7366c764a1c2f56817f3d70fc2e2
                 <a class="oil_wrap_button_header" href="./settings.php"><img src="../assets/images/img_icon_setting.svg" alt="" srcset=""></a>
+            <!-- <a href="./profil.php" style="display: inline-flex !important"><img src="../assets/images/img_icon_back.svg"></a> -->
+            <!-- <div class="oil_wrap_header_menu">
                 <a class="oil_wrap_button_header" href="./data.php">Lihat data <img src="../assets/images/img_icon_document.svg" alt="" srcset=""></a>
-            </div>
+            </div> -->
+                <a class="oil_wrap_button_header" href="./data.php">Lihat data <img src="../assets/images/img_icon_document.svg" alt="" srcset=""></a>
         </div>
         <div class="oil_content oil_bg_leaf">
             <div>
