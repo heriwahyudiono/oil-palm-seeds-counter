@@ -8,10 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
     <title>Print to PDF</title>
 </head>
-<body style="background: #F4F4F4">
+<body>
 
     <?php
 
@@ -28,36 +27,17 @@
     $model = new DataModel();
     $data = $model->getData();
 
-<<<<<<< HEAD
-=======
-    ob_start();
-
->>>>>>> 5350a0110d0a7366c764a1c2f56817f3d70fc2e2
     $image = file_get_contents("../assets/images/ptpn6.png");
     $imagedata = base64_encode($image);
 
     echo "
         <div>
             <div>
-                <img style='margin-right: 80px; display: inline-block; width: 70px; float: left; margin-right: 10px; margin-top: 16px;' src='data:image/png;base64, $imagedata' alt=''>
-                <h1 style='font-family: 'CrimsonPro';
-                font-size: 55px;
-                font-weight: 700;
-                line-height: 48px;
-                letter-spacing: 0em;
-                text-align: left;
-                '>PTPN 6 Unit Usaha Durian Luncuk</h1>
-                <h4 style='opacity: 0.88; 
-                font-weight: 500;'>Data Jumlah Bibit Kelapa Sawit di Pembibitan Main Nursery</h4>
+                <img style='width: 70px; float: left; margin-right: 10px; margin-top: 16px;' src='data:image/png;base64, $imagedata' alt=''>
+                <h2>PTPN 6 Unit Usaha Durian Luncuk</h2>
+                <h3>Data Jumlah Bibit Kelapa Sawit di Pembibitan Main Nursery</h3>
             </div>
-            <div style='
-                width: 100%;
-                height: 8px;
-                background: #789940;
-                border-bottom: 2px solid #EC6B0F;
-                margin-bottom: 40px
-            '>
-            </div>
+            <hr>
         </div>                              
     ";
 
@@ -89,10 +69,10 @@
                     }
                     echo "</tbody>";
                 }
-                
-                echo "<h3 style='color:#789940; text-transform: uppercase; margin-bottom: 0px; padding-left:8px; padding-top: 8px; padding-bottom: 8px'>Blok ke- <span style='color: #EC6B0F;'>" . $currentBlok . "</span></h3>";
-                echo "<table style='border-collapse: collapse; width: 100%; margin-bottom: 40px'>";
-                echo "<thead style='background: #F4F4F4'>";
+
+                echo "<h3>Blok ke- " . $currentBlok . "</h3>";
+                echo "<table style='border-collapse: collapse; width: 100%;'>";
+                echo "<thead>";
                 echo "<tr>";
                 echo "<th style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>Baris ke</th>";
                 echo "<th style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>Jumlah</th>";

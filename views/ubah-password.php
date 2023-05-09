@@ -28,7 +28,7 @@
                 }
                 ?>
             </div>
-            <form action="../controllers/UbahPasswordController.php" method="POST">
+            <form action="../controllers/UpdatePasswordController.php" method="POST">
                 <div class="oil_form_top">
                     <label>Kata Sandi Lama:</label>
                     <div class="oil_input_password oil_orange oil_input_icon oil_input_wrap">

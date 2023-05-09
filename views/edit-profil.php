@@ -35,7 +35,7 @@ if (isset($_SESSION['id'])) {
                 <span>Profil</span>
             </h2>
             <img class="img_icon_head" src="../assets/images/img_icon_user_color.svg" alt="" srcset="">
-            <form action="../controllers/EditProfilController.php" method="post">
+            <form action="../controllers/UpdateUserController.php" method="post">
                 <label for="nama_lengkap">Nama Lengkap:</label>
                 <div class="oil_input_name oil_input_icon oil_input_wrap">
                     <input type="text" id="nama_lengkap" name="nama_lengkap" value="<?php echo isset($user['nama_lengkap']) ? $user['nama_lengkap'] : ''; ?>"  class="oil_input" required><br>
