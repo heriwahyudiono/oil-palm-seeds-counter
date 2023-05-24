@@ -22,16 +22,3 @@ CREATE TABLE data (
     keterangan TEXT DEFAULT NULL
 );
 
-INSERT INTO data (blok_ke, baris_ke, jumlah, tanggal_penghitungan, keterangan)
-VALUES (1, 1, 7, '2023-03-18', NULL),
-       (1, 2, 8, '2023-03-18', NULL),
-       (1, 3, 8, '2023-03-18', NULL),
-       (1, 4, 9, '2023-03-18', NULL),
-       (1, 5, 10, '2023-03-18', NULL);
-
-INSERT INTO data (blok_ke, baris_ke, jumlah, tanggal_penghitungan, keterangan)
-VALUES (2, 1, 12, '2023-03-18', NULL),
-       (2, 2, 11, '2023-03-18', NULL),
-       (2, 3, 11, '2023-03-18', NULL),
-       (2, 4, 11, '2023-03-18', NULL);
-
