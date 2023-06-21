@@ -12,6 +12,12 @@ if (isset($_SESSION['id'])) {
     $date_of_birth = date('d-m-Y', strtotime($date_of_birth));
     $email = $user['email'];
     $phone_number = $user['phone_number'];
+
+    if ($gender === 'Male') {
+        $gender = 'Laki-laki';
+    } else if ($gender === 'Female') {
+        $gender = 'Perempuan';
+    }
 }
 ?>
 

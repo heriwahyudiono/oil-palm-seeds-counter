@@ -21,3 +21,6 @@ CREATE TABLE data (
     tanggal_hitung DATE NOT NULL,
     keterangan TEXT DEFAULT NULL
 );
+
+
+
