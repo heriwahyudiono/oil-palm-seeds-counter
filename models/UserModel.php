@@ -10,12 +10,12 @@ class UserModel
         $this->conn = openConnection();
     }
 
-    public function registerUser($nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $password)
+    public function registerUser($name, $gender, $date_of_birth, $email, $phone_number, $password)
     {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO users (nama_lengkap, jenis_kelamin, tanggal_lahir, email, nomor_telepon, password) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (name, gender, date_of_birth, email, phone_number, password) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssssss", $nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $hashed_password);
+        $stmt->bind_param("ssssss", $name, $gender, $date_of_birth, $email, $phone_number, $hashed_password);
 
         if ($stmt->execute()) {
             header("Location: ../views/hitung.php");
@@ -56,11 +56,11 @@ class UserModel
         }
     }
 
-    public function updateUser($id, $nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon)
+    public function updateUser($id, $name, $gender, $date_of_birth, $email, $phone_number)
     {
-        $sql = "UPDATE users SET nama_lengkap=?, jenis_kelamin=?, tanggal_lahir=?, email=?, nomor_telepon=? WHERE id=?";
+        $sql = "UPDATE users SET name=?, gender=?, date_of_birth=?, email=?, phone_number=? WHERE id=?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("sssssi", $nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $id);
+        $stmt->bind_param("sssssi", $name, $gender, $date_of_birth, $email, $phone_number, $id);
 
         if ($stmt->execute()) {
             return true;

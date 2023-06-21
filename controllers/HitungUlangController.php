@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $baris_ke = $_POST['baris_ke'];
     $keterangan = $_POST['keterangan'];
     $jumlah = $_POST['jumlah'];
-    $tanggal_penghitungan = date('Y-m-d');
+    $tanggal_hitung = date('Y-m-d');
 
     $model = new DataModel();
 
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $model->updateData($existingData[0]['id'], $jumlah, $keterangan);
         echo '<audio autoplay><source src="../assets/audio/data-berhasil-diperbarui.mp3" type="audio/mpeg"></audio>';
     } else {
-        $model->simpanData($blok_ke, $baris_ke, $jumlah, $keterangan, $tanggal_penghitungan);
+        $model->simpanData($blok_ke, $baris_ke, $jumlah, $keterangan, $tanggal_hitung);
         echo '<audio autoplay><source src="../assets/audio/data-baru-ditambahkan.mp3" type="audio/mpeg"></audio>';
     }
 

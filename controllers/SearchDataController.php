@@ -59,7 +59,7 @@
                 echo "<tr>";
                 echo "<td>" . $currentRow['baris_ke'] . "</td>";
                 echo "<td>" . $currentRow['jumlah'] . "</td>";
-                echo "<td>" . formatDate($currentRow['tanggal_penghitungan']) . "</td>";
+                echo "<td>" . formatDate($currentRow['tanggal_hitung']) . "</td>";
                 echo "<td>" . $currentRow['keterangan'] . "</td>";
                 echo "<td class='action-buttons'>
             <a href='./hitung-ulang.php'>Hitung Ulang</a>

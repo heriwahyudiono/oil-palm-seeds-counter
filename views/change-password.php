@@ -22,9 +22,9 @@
                 </h2>
                 <img class="img_icon_head" src="../assets/images/img_icon_lock_color.svg" alt="" srcset="">
                 <?php
-                if (isset($_SESSION['succes_message'])) {
-                    echo "<p>{$_SESSION['succes_message']}</p>";
-                    unset($_SESSION['succes_message']);
+                if (isset($_SESSION['success_message'])) {
+                    echo "<p>{$_SESSION['success_message']}</p>";
+                    unset($_SESSION['success_message']);
                 }
                 ?>
             </div>
@@ -32,7 +32,7 @@
                 <div class="oil_form_top">
                     <label>Kata Sandi Lama:</label>
                     <div class="oil_input_password oil_orange oil_input_icon oil_input_wrap">
-                        <input type="password" name="password_lama" required class="oil_input" placeholder="********">
+                        <input type="password" name="old_password" required class="oil_input" placeholder="********">
                     </div>
                     <?php
                     if (isset($_SESSION['error_old_password'])) {
@@ -43,11 +43,11 @@
 
                     <label>Kata Sandi Baru:</label>
                     <div class="oil_input_password oil_input_icon oil_input_wrap">
-                        <input type="password" name="password_baru" required class="oil_input" placeholder="********">
+                        <input type="password" name="new_password" required class="oil_input" placeholder="********">
                     </div>
                     <label>Ulangi Kata Sandi Baru:</label>
                     <div class="oil_input_password oil_input_icon oil_input_wrap">
-                        <input type="password" name="konfirmasi_password_baru" required class="oil_input" placeholder="********">
+                        <input type="password" name="confirm_new_password" required class="oil_input" placeholder="********">
                     </div>
                     <?php
                     if (isset($_SESSION['error_new_password'])) {

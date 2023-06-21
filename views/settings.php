@@ -16,11 +16,11 @@
         <div class="oil_content oil_bg_leaf">
             <div>
                 <h2>Pengaturan</h2>
-                <a class="oil_btn_very_large oil_input_icon" href="./profil.php" >
+                <a class="oil_btn_very_large oil_input_icon" href="./profile.php" >
                     <img src="../assets/images/img_icon_user_white.svg" alt="" srcset="">
                     Profil
                 </a><br>
-                <a class="oil_btn_very_large oil_input_icon oil_green" href="./ubah-password.php">
+                <a class="oil_btn_very_large oil_input_icon oil_green" href="./change-password.php">
                     <img src="../assets/images/img_icon_security_white.svg" alt="" srcset="">
                     Ubah Password
                 </a>

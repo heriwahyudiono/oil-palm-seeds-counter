@@ -6,12 +6,12 @@ session_start();
 if (isset($_SESSION['id'])) {
     $userModel = new UserModel();
     $user = $userModel->getUserById($_SESSION['id']);
-    $nama_lengkap = $user['nama_lengkap'];
-    $jenis_kelamin = $user['jenis_kelamin'];
-    $tanggal_lahir = $user['tanggal_lahir'];
-    $tanggal_lahir = date('d-m-Y', strtotime($tanggal_lahir));
+    $name = $user['name'];
+    $gender = $user['gender'];
+    $date_of_birth = $user['date_of_birth'];
+    $date_of_birth = date('d-m-Y', strtotime($date_of_birth));
     $email = $user['email'];
-    $nomor_telepon = $user['nomor_telepon'];
+    $phone_number = $user['phone_number'];
 }
 ?>
 
@@ -23,7 +23,7 @@ if (isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <title>Profil</title>
+    <title>Profile</title>
 </head>
 <body>
     <div id="oil_body_wrap" class="oil_header_padding oil_second">
@@ -35,25 +35,25 @@ if (isset($_SESSION['id'])) {
                 <h2>Profil</h2>
                 <img class="img_icon_head" src="../assets/images/img_icon_user_color.svg" alt="" srcset="">
                 <?php
-                if (isset($_SESSION['succes_message'])) {
-                    echo "<p>{$_SESSION['succes_message']}</p>";
-                    unset($_SESSION['succes_message']);
+                if (isset($_SESSION['success_message'])) {
+                    echo "<p>{$_SESSION['success_message']}</p>";
+                    unset($_SESSION['success_message']);
                 }
                 ?>
                 
                 <p class="oil_profil_data_label" style="margin-top: 0px">Nama: 
                     <div class="oil_profil_data oil_name">
-                        <?php echo $nama_lengkap; ?>
+                        <?php echo $name; ?>
                     </div>
                 </p>
                 <p class="oil_profil_data_label">Jenis Kelamin: 
                     <div class="oil_profil_data oil_gender">
-                        <?php echo $jenis_kelamin; ?>
+                        <?php echo $gender; ?>
                     </div>
                 </p>
                 <p class="oil_profil_data_label">Tanggal Lahir: 
                     <div class="oil_profil_data oil_date">
-                        <?php echo $tanggal_lahir; ?>
+                        <?php echo $date_of_birth; ?>
                     </div>
                 </p>
                 <p class="oil_profil_data_label">Email: 
@@ -63,11 +63,11 @@ if (isset($_SESSION['id'])) {
                 </p>
                 <p class="oil_profil_data_label">Nomor Telepon: 
                     <div class="oil_profil_data oil_phone">
-                        <?php echo $nomor_telepon; ?>
+                        <?php echo $phone_number; ?>
                     </div>
                 </p>
             </div>
-                <a href="./edit-profil.php" class="btn" style="width: max-content; box-sizing: border-box; margin-left: 24px; margin-bottom: 16px !important">Ubah Profil</a>
+                <a href="./edit-profile.php" class="btn" style="width: max-content; box-sizing: border-box; margin-left: 24px; margin-bottom: 16px !important">Ubah Profil</a>
         </div>
     </div>
 </body>

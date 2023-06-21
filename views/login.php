@@ -30,7 +30,7 @@
                     <div class="oil_input_password oil_input_icon oil_input_wrap">
                         <input type="password" id="password" name="password" required class="oil_input" placeholder="Kata Sandi"><br>
                     </div>
-                    <a class="oil_label_bottom" href="./lupa-password.php" style="text-decoration: underline">Lupa password?</a>
+                    <a class="oil_label_bottom" href="./forgot-password.php" style="text-decoration: underline">Lupa password?</a>
                     <?php
                         if(isset($_SESSION['password_error'])) {
                             echo "<p>{$_SESSION['password_error']}</p>";

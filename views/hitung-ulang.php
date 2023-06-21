@@ -6,7 +6,7 @@ session_start();
 if (isset($_SESSION['id'])) {
     $userModel = new UserModel();
     $user = $userModel->getUserById($_SESSION['id']);
-    $nama_lengkap = $user['nama_lengkap'];
+    $name = $user['name'];
 }
 ?>
 
@@ -62,8 +62,8 @@ if (isset($_SESSION['id'])) {
         </div>
         <div class="oil_content oil_bg_leaf">
             <div>
-                <div id="oil_selamat_datang">Halo <span><?php if (isset($nama_lengkap)) {
-                                                            echo $nama_lengkap;
+                <div id="oil_selamat_datang">Halo <span><?php if (isset($name)) {
+                                                            echo $name;
                                                         } ?></span>!
                 </div>
                 <h2>Hitung dengan <span>Teliti ya...</span></h2>

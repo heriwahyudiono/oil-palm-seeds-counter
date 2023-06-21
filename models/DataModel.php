@@ -12,9 +12,9 @@ class DataModel
 
     public function simpanData($blok_ke, $baris_ke, $jumlah, $keterangan = null)
     {
-        $tanggal_penghitungan = date('Y-m-d H:i:s');
-        $stmt = $this->conn->prepare("INSERT INTO data(blok_ke, baris_ke, jumlah, keterangan, tanggal_penghitungan) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("iiiss", $blok_ke, $baris_ke, $jumlah, $keterangan, $tanggal_penghitungan);
+        $tanggal_hitung = date('Y-m-d H:i:s');
+        $stmt = $this->conn->prepare("INSERT INTO data(blok_ke, baris_ke, jumlah, keterangan, tanggal_hitung) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("iiiss", $blok_ke, $baris_ke, $jumlah, $keterangan, $tanggal_hitung);
         $stmt->execute();
         $stmt->close();
     }
@@ -89,9 +89,9 @@ class DataModel
 
     public function updateData($id, $jumlah, $keterangan = null)
     {
-        $tanggal_penghitungan = date('Y-m-d H:i:s');
-        $stmt = $this->conn->prepare("UPDATE data SET jumlah = ?, keterangan = ?, tanggal_penghitungan = ? WHERE id = ?");
-        $stmt->bind_param("issi", $jumlah, $keterangan, $tanggal_penghitungan, $id);
+        $tanggal_hitung = date('Y-m-d H:i:s');
+        $stmt = $this->conn->prepare("UPDATE data SET jumlah = ?, keterangan = ?, tanggal_hitung = ? WHERE id = ?");
+        $stmt->bind_param("issi", $jumlah, $keterangan, $tanggal_hitung, $id);
         $stmt->execute();
         $stmt->close();
     }

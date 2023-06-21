@@ -10,7 +10,7 @@ require_once '../models/UserModel.php';
 $userModel = new UserModel();
 $user = $userModel->getUserById($_SESSION['id']);
 if ($user !== null) {
-    $nama_lengkap = $user['nama_lengkap'];
+    $name = $user['name'];
 }
 ?>
 
@@ -61,7 +61,7 @@ if ($user !== null) {
 <body>
     <div id="oil_body_wrap" class="oil_header_padding oil_second">
         <div class="oil_header">
-            <a class="oil_wrap_button_header" href="../controllers/LogoutController.php" style="border-color: #FFFFFF00"><img src="../assets/images/img_icon_logout.svg" alt="" srcset="" height="24">Keluar</a>
+            <a class="oil_wrap_button_header" href="../controllers/LogoutController.php" style="border-color: #FFFFFF00"><img src="../assets/images/img_icon_logout.svg" alt="" srcset="" height="24">Logout</a>
             <div class="oil_wrap_header_menu">
                 <a class="oil_wrap_button_header" href="./settings.php"><img src="../assets/images/img_icon_setting.svg" alt="" srcset=""></a>
                 <a class="oil_wrap_button_header" href="./data.php">Lihat data <img src="../assets/images/img_icon_document.svg" alt="" srcset=""></a>
@@ -69,8 +69,8 @@ if ($user !== null) {
         </div>
         <div class="oil_content oil_bg_leaf">
             <div>
-                <div id="oil_selamat_datang">Selamat Datang <span><?php if (isset($nama_lengkap)) {
-                                                                        echo $nama_lengkap;
+                <div id="oil_selamat_datang">Selamat Datang <span><?php if (isset($name)) {
+                                                                        echo $name;
                                                                     } ?></span>!
                 </div>
                 <h2>Selamat<br>

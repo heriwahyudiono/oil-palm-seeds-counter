@@ -6,15 +6,15 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userModel = new UserModel();
     $id = $_SESSION['id'];
-    $nama_lengkap = $_POST['nama_lengkap'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $tanggal_lahir = $_POST['tanggal_lahir'];
+    $name = $_POST['name'];
+    $gender = $_POST['gender'];
+    $date_of_birth = $_POST['date_of_birth'];
     $email = $_POST['email'];
-    $nomor_telepon = $_POST['nomor_telepon'];
+    $phone_number = $_POST['phone_number'];
 
-    $userModel->updateUser($id, $nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon);
+    $userModel->updateUser($id, $name, $gender, $date_of_birth, $email, $phone_number);
 
-    $_SESSION['succes_message'] = "Profil berhasil di update";
+    $_SESSION['success_message'] = "Profil berhasil diperbarui";
     $userModel->closeConnection();
-    header("Location: ../views/profil.php");
+    header("Location: ../views/profile.php");
 }

@@ -63,7 +63,7 @@
                         echo "<tr>";
                         echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . $currentRow['baris_ke'] . "</td>";
                         echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . $currentRow['jumlah'] . "</td>";
-                        echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . formatDate($currentRow['tanggal_penghitungan']) . "</td>";
+                        echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . formatDate($currentRow['tanggal_hitung']) . "</td>";
                         echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . $currentRow['keterangan'] . "</td>";
                         echo "</tr>";
                     }
@@ -90,7 +90,7 @@
                     echo "<tr>";
                     echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . $currentRow['baris_ke'] . "</td>";
                     echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . $currentRow['jumlah'] . "</td>";
-                    echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . formatDate($currentRow['tanggal_penghitungan']) . "</td>";
+                    echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . formatDate($currentRow['tanggal_hitung']) . "</td>";
                     echo "<td style='text-align: left; padding: 8px; border-bottom: 1px solid #ddd;'>" . $currentRow['keterangan'] . "</td>";
                     echo "</tr>";
                 }

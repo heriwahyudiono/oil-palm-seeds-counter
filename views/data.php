@@ -95,7 +95,7 @@
                 echo "<tr>";
                 echo "<td>" . $currentRow['baris_ke'] . "</td>";
                 echo "<td>" . $currentRow['jumlah'] . "</td>";
-                echo "<td>" . formatDate($currentRow['tanggal_penghitungan']) . "</td>";
+                echo "<td>" . formatDate($currentRow['tanggal_hitung']) . "</td>";
                 echo "<td>" . $currentRow['keterangan'] . "</td>";
                 echo "<td class='action-buttons'><a href='./hitung-ulang.php'>Hitung Ulang</a></td>";
                 echo "<td class='action-buttons'><a href='../controllers/DeleteDataController.php?id=" . $currentRow['id'] . "'>Delete</a></td>";
@@ -127,7 +127,7 @@
               echo "<tr>";
               echo "<td>" . $currentRow['baris_ke'] . "</td>";
               echo "<td>" . $currentRow['jumlah'] . "</td>";
-              echo "<td>" . formatDate($currentRow['tanggal_penghitungan']) . "</td>";
+              echo "<td>" . formatDate($currentRow['tanggal_hitung']) . "</td>";
               echo "<td>" . $currentRow['keterangan'] . "</td>";
               echo "<td class='action-buttons'>
             <a href='./hitung-ulang.php'>Hitung Ulang</a>
@@ -146,7 +146,7 @@
       ?>
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
     <script>
       $(document).ready(function() {
         $('#search-form').submit(function(event) {

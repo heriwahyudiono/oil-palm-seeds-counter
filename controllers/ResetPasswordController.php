@@ -9,17 +9,17 @@ if (isset($_GET['token'])) {
 
     if ($user) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $password_baru = $_POST['password_baru'];
-            $konfirmasi_password_baru = $_POST['konfirmasi_password_baru'];
+            $new_password = $_POST['new_password'];
+            $confirm_new_password = $_POST['confirm_new_password'];
 
-            if (strlen($password_baru) < 6) {
+            if (strlen($$new_password) < 6) {
                 $error = 'Password minimal 6 karakter';
-            } else if ($password_baru !== $konfirmasi_password_baru) {
-                $error = 'Password dan konfirmasi password tidak sama';
+            } else if ($new_password !== $confirm_new_password) {
+                $error = 'Password baru dan konfirmasi password baru tidak sama';
             } else {
-                $userModel->updatePassword($user['id'], $password_baru);
+                $userModel->updatePassword($user['id'], $$new_password);
                 $userModel->resetToken($user['id'], null);
-                $success = 'Password berhasil di reset';
+                $success = 'Password berhasil direset';
             }
         }
     } else {

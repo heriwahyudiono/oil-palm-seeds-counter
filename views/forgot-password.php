@@ -15,7 +15,7 @@
 				<span>Kata Sandi</span>
 			</h2>
 			<p>Kami akan mengirim tautan untuk mereset password Anda</p>
-			<form action="../controllers/LupaPasswordController.php" method="post">
+			<form action="../controllers/ForgotPasswordController.php" method="post">
 				<label for="email">Alamat Email</label>
 				<div class="oil_input_email oil_input_icon oil_input_wrap">
 					<input type="email" id="email" name="email" required class="oil_input" placeholder="Enter your email address">
