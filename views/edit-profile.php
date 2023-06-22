@@ -31,46 +31,42 @@ if (isset($_SESSION['id'])) {
         </div>
         <div class="oil_content oil_bg_leaf">
             <div>
-            <h2>Ubah<br>
-                <span>Profil</span>
-            </h2>
-            <img class="img_icon_head" src="../assets/images/img_icon_user_color.svg" alt="" srcset="">
-            <form action="../controllers/UpdateUserController.php" method="post">
-                <label for="name">Nama Lengkap:</label>
-                <div class="oil_input_name oil_input_icon oil_input_wrap">
-                    <input type="text" id="name" name="name" value="<?php echo isset($user['name']) ? $user['name'] : ''; ?>"  class="oil_input" required><br>
-                </div>
-                <label for="gender">Jenis Kelamin:</label>
-                <select id="gender" name="gender"  class="oil_input" required>
-                    <option value="">Pilih jenis kelamin</option>
-                    <option value="Male" <?php if (isset($user['gender']) && $user['gender'] == 'Male') {
-                                                    echo 'selected';
-                                                } ?>>Laki-laki</option>
-                    <option value="Female" <?php if (isset($user['gender']) && $user['gender'] == 'Female') {
-                                                    echo 'selected';
-                                                } ?>>Perempuan</option>
-                </select><br>
+                <h2>Ubah<br>
+                    <span>Profil</span>
+                </h2>
+                <img class="img_icon_head" src="../assets/images/img_icon_user_color.svg" alt="" srcset="">
+                <form action="../controllers/UpdateUserController.php" method="post">
+                    <label for="name">Nama Lengkap:</label>
+                    <div class="oil_input_name oil_input_icon oil_input_wrap">
+                        <input type="text" id="name" name="name" value="<?php echo isset($user['name']) ? $user['name'] : ''; ?>" class="oil_input" required><br>
+                    </div>
+                    <label for="gender">Jenis Kelamin:</label>
+                    <select id="gender" name="gender" class="oil_input" required>
+                        <option value="">Pilih jenis kelamin</option>
+                        <option value="Male" <?php if (isset($user['gender']) && $user['gender'] == 'Male') echo 'selected'; ?>>Laki-laki</option>
+                        <option value="Female" <?php if (isset($user['gender']) && $user['gender'] == 'Female') echo 'selected'; ?>>Perempuan</option>
+                    </select><br>
 
-                <label for="date_of_birth" style="margin-top:24px">Tanggal Lahir:</label>
-                <div class="oil_input_date oil_input_icon oil_input_wrap">
-                    <input type="date" id="date_of_birth" name="date_of_birth" value="<?php echo isset($user['date_of_birth']) ? $user['date_of_birth'] : ''; ?>"  class="oil_input" required><br>
+                    <label for="date_of_birth" style="margin-top:24px">Tanggal Lahir:</label>
+                    <div class="oil_input_date oil_input_icon oil_input_wrap">
+                        <input type="date" id="date_of_birth" name="date_of_birth" value="<?php echo isset($user['date_of_birth']) ? $user['date_of_birth'] : ''; ?>" class="oil_input" required><br>
+                    </div>
+                    <label for="email">Email:</label>
+                    <div class="oil_input_email oil_input_icon oil_input_wrap">
+                        <input type="email" id="email" name="email" value="<?php echo isset($user['email']) ? $user['email'] : ''; ?>" class="oil_input" required><br>
+                    </div>
+                    <label for="phone_number">Nomor Telepon:</label>
+                    <div class="oil_input_phone oil_input_icon oil_input_wrap">
+                        <input type="text" id="phone_number" name="phone_number" value="<?php echo isset($user['phone_number']) ? $user['phone_number'] : ''; ?>" class="oil_input" required><br>
+                    </div>
                 </div>
-                <label for="email">Email:</label>
-                <div class="oil_input_email oil_input_icon oil_input_wrap">
-                    <input type="email" id="email" name="email" value="<?php echo isset($user['email']) ? $user['email'] : ''; ?>"  class="oil_input" required><br>
-                </div>
-                <label for="phone_number">Nomor Telepon:</label>
-                <div class="oil_input_phone oil_input_icon oil_input_wrap">
-                    <input type="text" id="phone_number" name="phone_number" value="<?php echo isset($user['phone_number']) ? $user['phone_number'] : ''; ?>"  class="oil_input" required><br>
-                </div>	
-            </div>
-				<div class="oil_footer">
-					<div class="oil_wrap_bottom">
+                <div class="oil_footer">
+                    <div class="oil_wrap_bottom">
                         <button type="submit" class="btn" style="width: max-content">Simpan</button>
                     </div>
-				</div>
+                </div>
             </form>
-		</div>
-	</div>
+        </div>
+    </div>
 </body>
 </html>

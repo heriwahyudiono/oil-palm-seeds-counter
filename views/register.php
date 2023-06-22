@@ -59,7 +59,6 @@
 						unset($_SESSION['password_error']);
 					}
 					?>
-
 			</div>
 			<div class="oil_footer">
 				<div class="oil_wrap_bottom">
