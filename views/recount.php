@@ -1,15 +1,11 @@
 <?php
-session_start();
-if (!isset($_SESSION['id'])) {
-    header('Location: ./login.php');
-    exit();
-}
-
 require_once '../models/UserModel.php';
 
-$userModel = new UserModel();
-$user = $userModel->getUserById($_SESSION['id']);
-if ($user !== null) {
+session_start();
+
+if (isset($_SESSION['id'])) {
+    $userModel = new UserModel();
+    $user = $userModel->getUserById($_SESSION['id']);
     $name = $user['name'];
 }
 ?>
@@ -22,12 +18,10 @@ if ($user !== null) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <title>Oil Palm Seeds Counter</title>
+    <title>Hitung Ulang</title>
     <style>
         .vibrate {
             animation: vibrate 0.3s;
-            width: 125px;
-            height: 125px;
         }
 
         @keyframes vibrate {
@@ -61,40 +55,37 @@ if ($user !== null) {
 <body>
     <div id="oil_body_wrap" class="oil_header_padding oil_second">
         <div class="oil_header">
-            <a class="oil_wrap_button_header" href="../controllers/LogoutController.php" style="border-color: #FFFFFF00"><img src="../assets/images/img_icon_logout.svg" alt="" srcset="" height="24">Logout</a>
+            <a href="./data.php" style="display: inline-flex !important"><img src="../assets/images/img_icon_back.svg"></a>
             <div class="oil_wrap_header_menu">
-                <a class="oil_wrap_button_header" href="./settings.php"><img src="../assets/images/img_icon_setting.svg" alt="" srcset=""></a>
                 <a class="oil_wrap_button_header" href="./data.php">Lihat data <img src="../assets/images/img_icon_document.svg" alt="" srcset=""></a>
             </div>
         </div>
         <div class="oil_content oil_bg_leaf">
             <div>
-                <div id="oil_selamat_datang">Selamat Datang <span><?php if (isset($name)) {
-                                                                        echo $name;
-                                                                    } ?></span>!
+                <div id="oil_selamat_datang">Halo <span><?php if (isset($name)) {
+                                                            echo $name;
+                                                        } ?></span>!
                 </div>
-                <h2>Selamat<br>
-                    <span>Menghitung</span>
-                </h2>
-                <form action="../controllers/HitungController.php" method="POST">
+                <h2>Hitung dengan <span>Teliti ya...</span></h2>
+                <form action="../controllers/RecountController.php" method="POST">
                     <div>
-                        <div class="oil_d_column">
-                            <div>
-                                <label for="">Blok ke</label>
-                                <div class="oil_input_column oil_input_icon oil_input_wrap">
-                                    <input type="text" name="blok_ke" class="oil_input" placeholder="0">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="">Baris ke</label>
-                                <div class="oil_input_row oil_input_icon oil_input_wrap">
-                                    <input type="text" name="baris_ke" class="oil_input" placeholder="0">
-                                </div>
+                        <div>
+                            <label for="">Blok ke</label>
+                            <div class="oil_input_column oil_input_icon oil_input_wrap">
+                                <input type="text" name="blok_ke" class="oil_input" placeholder="0">
                             </div>
                         </div>
-                        <label for="" style="margin-top: 24px">Keterangan</label>
-                        <div class="oil_input_description oil_input_icon oil_input_wrap">
-                            <input type="text" name="keterangan" class="oil_input" placeholder="Tambahkan keterangan...">
+                        <div>
+                            <label for="">Baris ke</label>
+                            <div class="oil_input_row oil_input_icon oil_input_wrap">
+                                <input type="text" name="baris_ke" class="oil_input" placeholder="0">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">Keterangan</label>
+                            <div class="oil_input_description oil_input_icon oil_input_wrap">
+                                <input type="text" name="keterangan" class="oil_input" placeholder="Tambahkan keterangan...">
+                            </div>
                         </div>
                         <label for="">Jumlah</label>
                         <div id="oil_show_data">
@@ -114,7 +105,6 @@ if ($user !== null) {
             </div>
         </div>
     </div>
-
     <script>
         document.querySelector(".vibrate").addEventListener("mouseup", function() {
             document.querySelector(".vibrate").classList.remove("vibrate-active");
@@ -136,8 +126,8 @@ if ($user !== null) {
             document.getElementById("jumlah").innerHTML = jumlah;
         }
 
-        const simpanButton = document.querySelector("button[type='submit']");
-        simpanButton.addEventListener("click", function() {
+        const saveButton = document.querySelector("button[type='submit']");
+        saveButton.addEventListener("click", function() {
             const jumlahInput = document.createElement("input");
             jumlahInput.type = "hidden";
             jumlahInput.name = "jumlah";

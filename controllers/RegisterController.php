@@ -23,5 +23,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $userModel->closeConnection();
 
-    header("Location: ../views/hitung.php");
+    header("Location: ../views/count.php");
 }

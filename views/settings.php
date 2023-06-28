@@ -11,7 +11,7 @@
 <body>
     <div id="oil_body_wrap" class="oil_header_padding oil_second">
         <div class="oil_header">
-            <a href="./hitung.php"><img src="../assets/images/img_icon_back.svg">Kembali</a>
+            <a href="./count.php"><img src="../assets/images/img_icon_back.svg">Kembali</a>
         </div>
         <div class="oil_content oil_bg_leaf">
             <div>

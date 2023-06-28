@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['password'] = $user['password'];
-            header("Location: ../views/hitung.php");
+            header("Location: ../views/count.php");
             exit();
         } else {
             $_SESSION['password_error'] = "Password yang Anda masukkan salah";

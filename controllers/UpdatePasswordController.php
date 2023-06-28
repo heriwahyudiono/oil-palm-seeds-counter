@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($new_password == $confirm_new_password) {
                 $userModel->updatePassword($id, $new_password);
                 $_SESSION['success_message'] = "Password berhasil diubah";
-                header("Location: ../views/ubah-password.php");
+                header("Location: ../views/change-password.php");
             } else {
                 $_SESSION['error_new_password'] = "Konfirmasi password baru tidak cocok";
-                header("Location: ../views/ubah-password.php");
+                header("Location: ../views/change-password.php");
             }
         } else {
             $_SESSION['error_old_password'] = "Password lama yang Anda masukkan salah";

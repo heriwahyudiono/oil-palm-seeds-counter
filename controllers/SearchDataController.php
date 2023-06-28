@@ -15,7 +15,7 @@
       if (isset($_POST['blok_ke'])) {
         $blok_ke = $_POST['blok_ke'];
         $model = new DataModel();
-        $data = $model->getDataByBlok($blok_ke);
+        $data = $model->getDataByBlock($blok_ke);
 
         if ($data) {
           usort($data, function ($a, $b) {

@@ -37,7 +37,7 @@
 <body>
   <div id="oil_body_wrap" class="oil_header_padding oil_second" style="min-height: unset !important">
     <div class="oil_header oil_wrap_header_menu">
-      <a href="./hitung.php" style="display: inline-flex !important"><img src="../assets/images/img_icon_back.svg">Kembali</a>
+      <a href="./count.php" style="display: inline-flex !important"><img src="../assets/images/img_icon_back.svg">Kembali</a>
     </div>
     <div class="oil_content oil_bg_leaf">
       <div>
@@ -50,7 +50,7 @@
             <a class="btn oil_btn_icon_small oil_green" href="./print-to-pdf.php"><img src="../assets/images/img_icon_print.svg">Cetak PDF</a>
           </div>
           <div>
-            <a class="btn oil_btn_icon_small" href="./hitung.php"><img src="../assets/images/img_icon_refresh.svg">Hitung lagi</a>
+            <a class="btn oil_btn_icon_small" href="./count.php"><img src="../assets/images/img_icon_refresh.svg">Hitung lagi</a>
           </div>
         </div>
         <label for="" style="margin-top: 44px; margin-bottom: 8px; display: block; font-family: Mate; font-size: 20px; font-weight: 400; line-height: 24px; letter-spacing: 0.04em; text-align: left;">Cari Data Berdasarkan Blok</label>
@@ -97,7 +97,7 @@
                 echo "<td>" . $currentRow['jumlah'] . "</td>";
                 echo "<td>" . formatDate($currentRow['tanggal_hitung']) . "</td>";
                 echo "<td>" . $currentRow['keterangan'] . "</td>";
-                echo "<td class='action-buttons'><a href='./hitung-ulang.php'>Hitung Ulang</a></td>";
+                echo "<td class='action-buttons'><a href='./recount.php'>Hitung Ulang</a></td>";
                 echo "<td class='action-buttons'><a href='../controllers/DeleteDataController.php?id=" . $currentRow['id'] . "'>Delete</a></td>";
                 echo "</tr>";
               }
@@ -130,7 +130,7 @@
               echo "<td>" . formatDate($currentRow['tanggal_hitung']) . "</td>";
               echo "<td>" . $currentRow['keterangan'] . "</td>";
               echo "<td class='action-buttons'>
-            <a href='./hitung-ulang.php'>Hitung Ulang</a>
+            <a href='./recount.php'>Hitung Ulang</a>
             <button onclick='confirmDelete(" . $currentRow['id'] . ")'>Delete</button>
           </td>";
               echo "</tr>";

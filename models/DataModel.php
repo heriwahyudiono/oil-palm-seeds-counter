@@ -10,7 +10,7 @@ class DataModel
         $this->conn = openConnection();
     }
 
-    public function simpanData($blok_ke, $baris_ke, $jumlah, $keterangan = null)
+    public function saveData($blok_ke, $baris_ke, $jumlah, $keterangan = null)
     {
         $tanggal_hitung = date('Y-m-d H:i:s');
         $stmt = $this->conn->prepare("INSERT INTO data(blok_ke, baris_ke, jumlah, keterangan, tanggal_hitung) VALUES (?, ?, ?, ?, ?)");
@@ -53,7 +53,7 @@ class DataModel
         $stmt->close();
     }
 
-    public function getDataByBlokBaris($blok_ke, $baris_ke)
+    public function getDataByBlockAndRow($blok_ke, $baris_ke)
     {
         $stmt = $this->conn->prepare("SELECT * FROM data WHERE blok_ke = ? AND baris_ke = ?");
         $stmt->bind_param("ii", $blok_ke, $baris_ke);
@@ -70,7 +70,7 @@ class DataModel
         return $data;
     }
 
-    public function getDataByBlok($blok_ke)
+    public function getDataByBlock($blok_ke)
     {
         $stmt = $this->conn->prepare("SELECT * FROM data WHERE blok_ke = ?");
         $stmt->bind_param("i", $blok_ke);

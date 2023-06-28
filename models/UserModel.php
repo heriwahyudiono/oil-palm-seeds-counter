@@ -18,7 +18,7 @@ class UserModel
         $stmt->bind_param("ssssss", $name, $gender, $date_of_birth, $email, $phone_number, $hashed_password);
 
         if ($stmt->execute()) {
-            header("Location: ../views/hitung.php");
+            header("Location: ../views/count.php");
         } else {
             echo "Error: " . $sql . "<br>" . $this->conn->error;
         }

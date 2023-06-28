@@ -10,13 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $model = new DataModel();
 
-    $existingData = $model->getDataByBlokBaris($blok_ke, $baris_ke);
+    $existingData = $model->getDataByBlockAndRow($blok_ke, $baris_ke);
 
     if ($existingData) {
         $model->updateData($existingData[0]['id'], $jumlah, $keterangan);
         echo '<audio autoplay><source src="../assets/audio/data-berhasil-diperbarui.mp3" type="audio/mpeg"></audio>';
     } else {
-        $model->simpanData($blok_ke, $baris_ke, $jumlah, $keterangan, $tanggal_hitung);
+        $model->saveData($blok_ke, $baris_ke, $jumlah, $keterangan, $tanggal_hitung);
         echo '<audio autoplay><source src="../assets/audio/data-baru-ditambahkan.mp3" type="audio/mpeg"></audio>';
     }
 

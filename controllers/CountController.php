@@ -2,7 +2,7 @@
 
 require_once '../models/DataModel.php';
 
-class HitungController
+class CountController
 {
     private $model;
 
@@ -11,12 +11,12 @@ class HitungController
         $this->model = new DataModel();
     }
 
-    public function hitung()
+    public function count()
     {
-        include '../views/hitung.php';
+        include '../views/count.php';
     }
 
-    public function simpan()
+    public function save()
     {
         $blok_ke = $_POST['blok_ke'] ?? null;
         $baris_ke = $_POST['baris_ke'] ?? null;
@@ -24,11 +24,11 @@ class HitungController
         $keterangan = $_POST['keterangan'] ?? null;
 
         if (!$blok_ke || !$baris_ke || !$jumlah) {
-            header('Location: ../views/hitung.php');
+            header('Location: ../views/count.php');
             return;
         }
 
-        $this->model->simpanData($blok_ke, $baris_ke, $jumlah, $keterangan);
+        $this->model->saveData($blok_ke, $baris_ke, $jumlah, $keterangan);
 
         echo '<audio autoplay><source src="../assets/audio/data-berhasil-disimpan.mp3" type="audio/mpeg"></audio>';
 
@@ -41,10 +41,10 @@ class HitungController
     }
 }
 
-$controller = new HitungController();
+$controller = new CountController();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['blok_ke'], $_POST['baris_ke'], $_POST['jumlah'])) {
-    $controller->simpan();
+    $controller->save();
 } else {
-    $controller->hitung();
+    $controller->count();
 }
