@@ -1,8 +1,8 @@
 <?php
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_AUTH', true);
-define('SMTP_USERNAME', '');
-define('SMTP_PASSWORD', '');
+define('SMTP_USERNAME', 'heriwhydiono@gmail.com');
+define('SMTP_PASSWORD', 'twyvhevrdpvjdtnp');
 define('SMTP_SECURE', 'tls');
 define('SMTP_PORT', 587);
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $to = $email;
             $subject = "Reset Password";
             $message = "Click the link below to reset your password: $reset_link";
-            $mail->setFrom('');
+            $mail->setFrom('heriwhydiono@gmail.com');
             $mail->addAddress($to);
             $mail->isHTML(true);
             $mail->Subject = $subject;
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     } else {
-        echo "Email not found.";
+        echo "Email Not Found";
     }
 }
 

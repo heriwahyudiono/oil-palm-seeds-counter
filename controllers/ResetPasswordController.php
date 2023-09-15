@@ -12,13 +12,13 @@ if (isset($_GET['token'])) {
             $new_password = $_POST['new_password'];
             $confirm_new_password = $_POST['confirm_new_password'];
 
-            if (strlen($$new_password) < 6) {
+            if (strlen($new_password) < 6) {
                 $error = 'Password minimal 6 karakter';
             } else if ($new_password !== $confirm_new_password) {
                 $error = 'Password baru dan konfirmasi password baru tidak sama';
             } else {
-                $userModel->updatePassword($user['id'], $$new_password);
-                $userModel->resetToken($user['id'], null);
+                $userModel->updatePassword($user['id'], $new_password);
+                $userModel->resetToken($user['email'], null); 
                 $success = 'Password berhasil direset';
             }
         }

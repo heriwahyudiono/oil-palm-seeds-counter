@@ -112,12 +112,11 @@ class UserModel
             $sql = "UPDATE users SET token = ? WHERE email = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("ss", $token, $email);
-            $stmt->execute();
-            if ($stmt->affected_rows > 0) {
-                return $user['token'];
+            if ($stmt->execute()) {
+                return true;
             }
         }
-        return null;
+        return false; // Return false jika terjadi kesalahan
     }
 
     public function closeConnection()
