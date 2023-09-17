@@ -12,16 +12,6 @@
 	<div id="oil_body_wrap">
 		<div class="oil_content oil_bg_leaf">
 			<h2>Reset Password</h2>
-			<?php if (!empty($error)): ?>
-				<div class="error-message">
-					<?php echo $error; ?>
-				</div>
-			<?php endif; ?>
-			<?php if (!empty($success)): ?>
-				<div class="success-message">
-					<?php echo $success; ?>
-				</div>
-			<?php endif; ?>
 			<form action="../controllers/ResetPasswordController.php?token=<?php echo htmlspecialchars($_GET['token']); ?>" method="POST">
 				<label>Password Baru:</label>
 				<div class="oil_input_password oil_input_icon oil_input_wrap">

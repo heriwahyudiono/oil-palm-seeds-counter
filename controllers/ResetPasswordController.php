@@ -2,8 +2,6 @@
 require_once '../models/UserModel.php';
 
 $userModel = new UserModel();
-$error = '';
-$success = '';
 
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
@@ -18,24 +16,19 @@ if (isset($_GET['token'])) {
                 $confirm_new_password = htmlspecialchars($confirm_new_password);
 
                 if (strlen($new_password) < 6) {
-                    $error = 'Password minimal 6 karakter';
+                    echo 'Password minimal 6 karakter';
                 } else if ($new_password !== $confirm_new_password) {
-                    $error = 'Password baru dan konfirmasi password baru tidak sama';
+                    echo 'Password baru dan konfirmasi password baru tidak sama';
                 } else {
                     $userModel->updatePassword($user['id'], $new_password);
                     $userModel->resetToken($user['email'], null); 
-                    $success = 'Password berhasil direset';
+                    echo 'Password berhasil direset';
                 }
-            } else {
-                $error = 'Ada masalah dengan data yang dikirimkan';
             }
         }
     } else {
-        $error = 'Token tidak valid atau sudah kadaluarsa';
+        echo 'Token tidak valid atau sudah kadaluarsa';
     }
-} else {
-    $error = 'Token tidak ditemukan';
 }
 
 $userModel->closeConnection();
-?>
