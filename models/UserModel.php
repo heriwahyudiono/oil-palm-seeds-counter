@@ -116,7 +116,7 @@ class UserModel
                 return true;
             }
         }
-        return false; // Return false jika terjadi kesalahan
+        return false; 
     }
 
     public function closeConnection()

@@ -15,3 +15,4 @@ function openConnection() {
     return $conn;
 }
 
+

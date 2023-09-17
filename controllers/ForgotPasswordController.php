@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user !== null) {
         $reset_token = bin2hex(random_bytes(32));
         $reset_link = "http://localhost/oil-palm-seeds-counter/views/reset-password.php?token=$reset_token";
+        
+        // Perbarui token di database
         $userModel->updateToken($user['id'], $reset_token);
 
         try {
@@ -49,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "Email Not Found";
     }
+    
+    $userModel->closeConnection();
 }
-
-$userModel->closeConnection();
+?>
