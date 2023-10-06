@@ -1,6 +1,6 @@
 {
-    "name": "Oil Palm Seeds Counter",
-    "short_name": "OPS Counter",
+    "name": "oil-palm-seeds-counter",
+    "short_name": "",
     "start_url": "http://localhost/oil-palm-seeds-counter/views/login.php",
     "display": "standalone",
     "background_color": "#ffffff",
